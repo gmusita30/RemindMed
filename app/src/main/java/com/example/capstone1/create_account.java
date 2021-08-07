@@ -1,5 +1,6 @@
 package com.example.capstone1;
 
+
 import static android.widget.Toast.makeText;
 
 import androidx.annotation.NonNull;
@@ -24,7 +25,7 @@ import com.google.firebase.database.DatabaseReference;
 //import com.google.firebase.database.FirebaseDatabase;
 
 public class create_account extends AppCompatActivity {
-    EditText first,last,password,confirm,emailInput;
+    EditText first, last, password, confirm, emailInput;
     Button buttonSignUp;
     //String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     //FirebaseDatabase root;
@@ -36,19 +37,19 @@ public class create_account extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
 
-        first =findViewById(R.id.first_nameBox);
-        last =findViewById(R.id.last_nameBox);
-        password =findViewById(R.id.passwordBox);
-        confirm =findViewById(R.id.confimpassword);
-        emailInput =findViewById(R.id.emailBox);
+        first = findViewById(R.id.first_nameBox);
+        last = findViewById(R.id.last_nameBox);
+        password = findViewById(R.id.passwordBox);
+        confirm = findViewById(R.id.confimpassword);
+        emailInput = findViewById(R.id.emailBox);
         buttonSignUp = findViewById(R.id.btnSign);
 
         //root = FirebaseDatabase.getInstance();
-       // reference = root.getReference("User");
+        // reference = root.getReference("User");
         rootAuthen = FirebaseAuth.getInstance();
 
-        if(rootAuthen.getCurrentUser() !=null){
-            startActivity(new Intent(getApplicationContext(),main_page.class));
+        if (rootAuthen.getCurrentUser() != null) {
+            startActivity(new Intent(getApplicationContext(), main_page.class));
             finish();
         }
 
@@ -59,40 +60,38 @@ public class create_account extends AppCompatActivity {
                 String Password = password.getText().toString().trim();
                 String Confirm_Password = confirm.getText().toString().trim();
 
-                if(TextUtils.isEmpty(Email)){
+                if (TextUtils.isEmpty(Email)) {
                     emailInput.setError("Email is required");
                     return;
                 }
-                if(TextUtils.isEmpty(Confirm_Password)){
-                    password.setError("Confirm Password is required");
+                if (TextUtils.isEmpty(Confirm_Password)) {
+                    confirm.setError("Confirm Password is required");
                     return;
                 }
-                if(TextUtils.isEmpty(Password)){
-                    confirm.setError("Password is required");
+                if (TextUtils.isEmpty(Password)) {
+                    password.setError("Password is required");
                     return;
                 }
-                if(Password.length() < 6){
+                if (Password.length() < 6) {
                     password.setError("Password must be at least 6 characters");
                     return;
                 }
 
-               rootAuthen.createUserWithEmailAndPassword(Email, Password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                   @Override
-                   public void onComplete(@NonNull Task<AuthResult> task) {
-                       if(task.isSuccessful()){
-                           Toast.makeText(create_account.this, "User Created", Toast.LENGTH_SHORT).show();
-                           startActivity(new Intent(getApplicationContext(),main_page.class));
-                       }else {
-                           Toast.makeText(create_account.this, "Error! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                       }
+                rootAuthen.createUserWithEmailAndPassword(Email, Password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(create_account.this, "User Created", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(), main_page.class));
+                        } else {
+                            Toast.makeText(create_account.this, "Error! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
 
-                   }
-               });
+                    }
+                });
 
             }
         });
     }
 
-
 }
-

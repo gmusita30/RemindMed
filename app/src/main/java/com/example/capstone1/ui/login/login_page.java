@@ -42,8 +42,8 @@ public class login_page extends AppCompatActivity {
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
-        final EditText usernameEditText = binding.emailTxtbox1;
-        final EditText passwordEditText = binding.passwordTxtbox1;
+        final EditText usernameEditText = binding.emailinput;
+        final EditText passwordEditText = binding.passwordinput;
         final Button loginButton = binding.loginBtn;
         //final ProgressBar loadingProgressBar = binding.loading;
 

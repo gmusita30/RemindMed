@@ -20,7 +20,7 @@
         app:srcCompat="@drawable/logo" />
 
     <EditText
-        android:id="@+id/email_txtbox1"
+        android:id="@+id/emailinput"
         android:layout_width="287dp"
         android:layout_height="52dp"
         android:layout_marginBottom="21dp"
@@ -35,7 +35,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/passwordTxtbox1"
+        android:id="@+id/passwordinput"
         android:layout_width="287dp"
         android:layout_height="52dp"
         android:layout_marginBottom="32dp"
