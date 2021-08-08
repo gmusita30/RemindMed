@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
@@ -47,6 +48,7 @@ public class create_account extends AppCompatActivity {
         //root = FirebaseDatabase.getInstance();
         // reference = root.getReference("User");
         rootAuthen = FirebaseAuth.getInstance();
+        
 
         if (rootAuthen.getCurrentUser() != null) {
             startActivity(new Intent(getApplicationContext(), main_page.class));
