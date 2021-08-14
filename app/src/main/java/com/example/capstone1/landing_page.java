@@ -21,13 +21,13 @@ public class landing_page extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openmain_page();
+                openhome();
             }
         });
     }
 
-    private void openmain_page() {
-        Intent intent = new Intent(this, main_page.class);
+    private void openhome() {
+        Intent intent = new Intent(this, home.class);
         startActivity(intent);
     }
 }

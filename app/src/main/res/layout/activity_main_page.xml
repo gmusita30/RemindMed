@@ -25,6 +25,7 @@
         android:background="@drawable/edit_round"
         android:fontFamily="@font/viga"
         android:text="Create Account"
+        android:onClick="Main_To_Create"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="@+id/logo1"

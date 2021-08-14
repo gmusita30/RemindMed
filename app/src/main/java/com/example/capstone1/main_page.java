@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
@@ -25,6 +26,7 @@ public class main_page extends AppCompatActivity {
     private Button login;
     private Button guest;
     FirebaseAuth rootAuthen;
+    FirebaseUser currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +36,11 @@ public class main_page extends AppCompatActivity {
         login = (Button) findViewById(R.id.login_button);
         guest = (Button) findViewById(R.id.guest_btn);
         rootAuthen = FirebaseAuth.getInstance();
+        currentUser = rootAuthen.getCurrentUser();
 
 
         //guest
+/*
         rootAuthen.signInAnonymously()
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -45,6 +49,7 @@ public class main_page extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInAnonymously:success");
                             FirebaseUser user = rootAuthen.getCurrentUser();
+
                             //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -55,29 +60,41 @@ public class main_page extends AppCompatActivity {
                         }
                     }
                 });
-        create_account.setOnClickListener(new View.OnClickListener() {
+
+ */
+        guest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                opencreate_account();
+                openlanding_page();
             }
         });
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openlogin_page();
             }
         });
-    }
 
+    }
+/*
     public void opencreate_account() {
         Intent intent = new Intent(this, create_account.class);
         startActivity(intent);
     }
-
+*/
     public void openlogin_page(){
         Intent intent = new Intent(this, login_page.class);
         startActivity(intent);
     }
     //guest
+    public void openlanding_page(){
+        Intent intent = new Intent(this, landing_page.class);
+        startActivity(intent);
+    }
 
+    public void Main_To_Create (View view){
+        Intent intent = new Intent(main_page.this, create_account.class);
+        startActivity(intent);
+    }
 }
