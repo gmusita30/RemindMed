@@ -40,13 +40,26 @@ public class main_page extends AppCompatActivity {
 
 
         //guest
-/*
+        create_account.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                opencreate_account();
+            }
+        });
+
+
         rootAuthen.signInAnonymously()
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
+                            guest.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    openlanding_page();
+                                }
+                            });
                             Log.d(TAG, "signInAnonymously:success");
                             FirebaseUser user = rootAuthen.getCurrentUser();
 
@@ -61,13 +74,6 @@ public class main_page extends AppCompatActivity {
                     }
                 });
 
- */
-        guest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openlanding_page();
-            }
-        });
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,12 +83,12 @@ public class main_page extends AppCompatActivity {
         });
 
     }
-/*
+
     public void opencreate_account() {
         Intent intent = new Intent(this, create_account.class);
         startActivity(intent);
     }
-*/
+
     public void openlogin_page(){
         Intent intent = new Intent(this, login_page.class);
         startActivity(intent);
@@ -93,8 +99,4 @@ public class main_page extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void Main_To_Create (View view){
-        Intent intent = new Intent(main_page.this, create_account.class);
-        startActivity(intent);
-    }
 }

@@ -7,9 +7,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.service.autofill.UserData;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +19,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
@@ -24,15 +27,23 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 //import com.google.firebase.database.FirebaseDatabase;
 
 public class create_account extends AppCompatActivity {
+    public static final String TAG = "TAG";
     EditText first, last, password, confirm, emailInput;
     Button buttonSignUp;
     //String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     //FirebaseDatabase root;
     DatabaseReference reference;
     FirebaseAuth rootAuthen;
+    FirebaseFirestore fstore;
+    String userId;
 
     @Override
     public void onStart() {
@@ -58,6 +69,7 @@ public class create_account extends AppCompatActivity {
         //root = FirebaseDatabase.getInstance();
         // reference = root.getReference("User");
         rootAuthen = FirebaseAuth.getInstance();
+        fstore = FirebaseFirestore.getInstance();
         
 
         if (rootAuthen.getCurrentUser() != null) {
@@ -71,6 +83,9 @@ public class create_account extends AppCompatActivity {
                 String Email = emailInput.getText().toString().trim();
                 String Password = password.getText().toString().trim();
                 String Confirm_Password = confirm.getText().toString().trim();
+                String firstname = first.getText().toString().trim();
+                String lastname = last.getText().toString().trim();
+
 
                 if (TextUtils.isEmpty(Email)) {
                     emailInput.setError("Email is required");
@@ -94,6 +109,19 @@ public class create_account extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(create_account.this, "User Created", Toast.LENGTH_SHORT).show();
+                            userId = rootAuthen.getCurrentUser().getUid();
+                            DocumentReference documentReference = fstore.collection("users").document(userId);
+                            Map<String,Object> user = new HashMap<>();
+                            user.put("firstname",firstname);
+                            user.put("lastname",lastname);
+                            user.put("email",Email);
+                            user.put("password",Password);
+                            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    Log.d(TAG, "onSuccess: user profile is created for " + userId);
+                                }
+                            });
                             startActivity(new Intent(getApplicationContext(), main_page.class));
                         } else {
                             Toast.makeText(create_account.this, "Error! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
