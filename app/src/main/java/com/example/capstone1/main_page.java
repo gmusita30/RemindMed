@@ -40,14 +40,7 @@ public class main_page extends AppCompatActivity {
 
 
         //guest
-        create_account.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                opencreate_account();
-            }
-        });
-
-
+/*
         rootAuthen.signInAnonymously()
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -73,6 +66,13 @@ public class main_page extends AppCompatActivity {
                         }
                     }
                 });
+*/
+        create_account.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                opencreate_account();
+            }
+        });
 
 
         login.setOnClickListener(new View.OnClickListener() {

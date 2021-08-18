@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 
 public class landing_page extends AppCompatActivity {
@@ -27,7 +26,7 @@ public class landing_page extends AppCompatActivity {
     }
 
     private void openhome() {
-        Intent intent = new Intent(this, home.class);
+        Intent intent = new Intent(this, user_information.class);
         startActivity(intent);
     }
 }

@@ -36,8 +36,9 @@ import java.util.Map;
 
 public class create_account extends AppCompatActivity {
     public static final String TAG = "TAG";
-    EditText first, last, password, confirm, emailInput;
+    EditText first, last, password, confirm, emailInput, gender, birthdate, height, weight;
     Button buttonSignUp;
+    Button buttonSave;
     //String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     //FirebaseDatabase root;
     DatabaseReference reference;
@@ -65,6 +66,11 @@ public class create_account extends AppCompatActivity {
         confirm = findViewById(R.id.confimpassword);
         emailInput = findViewById(R.id.emailBox);
         buttonSignUp = findViewById(R.id.btnSign);
+        gender = findViewById(R.id.editTextgender);
+        birthdate = findViewById(R.id.editTextbirth);
+        height = findViewById(R.id.editTextheight);
+        weight = findViewById(R.id.editTextweight);
+        buttonSave = findViewById(R.id.btnSave);
 
         //root = FirebaseDatabase.getInstance();
         // reference = root.getReference("User");
@@ -85,7 +91,6 @@ public class create_account extends AppCompatActivity {
                 String Confirm_Password = confirm.getText().toString().trim();
                 String firstname = first.getText().toString().trim();
                 String lastname = last.getText().toString().trim();
-
 
                 if (TextUtils.isEmpty(Email)) {
                     emailInput.setError("Email is required");
@@ -116,6 +121,7 @@ public class create_account extends AppCompatActivity {
                             user.put("lastname",lastname);
                             user.put("email",Email);
                             user.put("password",Password);
+
                             documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {

@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Capstone1">
         <activity
-            android:name=".home"
+            android:name=".change_name"
+            android:exported="true" />
+        <activity
+            android:name=".user_information"
             android:exported="true" />
         <activity
             android:name=".recover"
