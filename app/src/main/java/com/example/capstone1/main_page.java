@@ -22,9 +22,9 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class main_page extends AppCompatActivity {
 
-    private Button create_account;
-    private Button login;
-    private Button guest;
+    Button create_account;
+    Button login;
+    Button guest;
     FirebaseAuth rootAuthen;
     FirebaseUser currentUser;
 
@@ -32,7 +32,8 @@ public class main_page extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
-        create_account = (Button) findViewById(R.id.createAccount_btn);
+
+        create_account = findViewById(R.id.createacc_button);
         login = (Button) findViewById(R.id.login_button);
         guest = (Button) findViewById(R.id.guest_btn);
         rootAuthen = FirebaseAuth.getInstance();
@@ -67,13 +68,15 @@ public class main_page extends AppCompatActivity {
                     }
                 });
 */
+
+        /*
         create_account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 opencreate_account();
             }
         });
-
+*/
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,12 +86,24 @@ public class main_page extends AppCompatActivity {
         });
 
     }
-
-    public void opencreate_account() {
-        Intent intent = new Intent(this, create_account.class);
+    public void openlogin_page(){
+        Intent intent = new Intent(this, login_page.class);
         startActivity(intent);
     }
 
+
+    public void Main_To_Create(View view) {
+        Intent intent = new Intent(this, create_account.class);
+        startActivity(intent);
+    }
+}
+
+/*
+    public void Main_To_Create(){
+        Intent intent = new Intent(this, create_account.class);
+        startActivity(intent);
+    }
+/*
     public void openlogin_page(){
         Intent intent = new Intent(this, login_page.class);
         startActivity(intent);
@@ -99,4 +114,6 @@ public class main_page extends AppCompatActivity {
         startActivity(intent);
     }
 
-}
+
+
+ */

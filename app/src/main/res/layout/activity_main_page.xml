@@ -17,36 +17,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/logo" />
 
+
     <Button
-        android:id="@+id/createAccount_btn"
-        android:layout_width="286dp"
-        android:layout_height="61dp"
-        android:layout_marginBottom="32dp"
+        android:id="@+id/createacc_button"
+        android:layout_width="285dp"
+        android:layout_height="69dp"
+        android:layout_marginBottom="368dp"
         android:background="@drawable/edit_round"
-        android:fontFamily="@font/viga"
-        android:text="Create Account"
         android:onClick="Main_To_Create"
+
+        android:text="Create Account"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="@+id/logo1"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="UsingOnClickInXml" />
 
     <Button
         android:id="@+id/login_button"
         android:layout_width="285dp"
         android:layout_height="69dp"
-        android:layout_marginBottom="260dp"
+        android:layout_marginBottom="264dp"
         android:background="@drawable/edit_round"
-        android:fontFamily="@font/viga"
+
         android:text="Already a member? Login"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -55,7 +58,7 @@
         android:layout_height="65dp"
         android:layout_marginBottom="152dp"
         android:background="@drawable/edit_round"
-        android:fontFamily="@font/viga"
+
         android:text="Login as a guest"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#000000"

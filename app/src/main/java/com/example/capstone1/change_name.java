@@ -67,12 +67,12 @@ public class change_name extends AppCompatActivity {
                         docRef.update(edited).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
-                                Toast.makeText(change_name.this, "First name updated", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(change_name.this, "Updated", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(getApplicationContext(),user_information.class));
                                 finish();
                             }
                         });
-                        Toast.makeText(change_name.this, "Email is changed", Toast.LENGTH_SHORT).show();
+
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -87,5 +87,9 @@ public class change_name extends AppCompatActivity {
         editlastname.setText(lastname);
 
         Log.d(TAG, "onCreate: " + firstname + " " + lastname);
+    }
+    public void Change_To_User (View view){
+        Intent intent = new Intent(change_name.this, user_information.class);
+        startActivity(intent);
     }
 }

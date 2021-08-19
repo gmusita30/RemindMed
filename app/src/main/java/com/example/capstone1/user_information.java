@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -24,15 +25,17 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.SetOptions;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class user_information extends AppCompatActivity {
-    //public static final String TAG1 = "TAG";
     public static final String TAG = "TAG";
-    EditText gender, birthdate, height, weight;
-    Button buttonSave;
+    //public static final String TAG1 = "TAG";
+    //public static final String TAG = "TAG";
+    EditText gender, birthyr, height, weight;
+    Button buttonSave, buttonLogout;
     TextView email, firstname, lastname;
     FirebaseAuth rootAuthen;
     FirebaseFirestore fstore;
@@ -43,27 +46,94 @@ public class user_information extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_information);
 
+        /*
         Intent data = getIntent();
         String Gender = data.getStringExtra("Gender");
         String Birthdate = data.getStringExtra("Birthdate");
         String Height = data.getStringExtra("Height");
         String Weight = data.getStringExtra("Weight");
-
+*/
         email = findViewById(R.id.emailview);
         firstname = findViewById(R.id.firstview);
         lastname = findViewById(R.id.lastview);
 
         gender = findViewById(R.id.editTextgender);
-        birthdate = findViewById(R.id.editTextbirth);
+        birthyr = findViewById(R.id.editTextbirth);
         height = findViewById(R.id.editTextheight);
         weight = findViewById(R.id.editTextweight);
         buttonSave = findViewById(R.id.btnSave);
+        buttonLogout = findViewById(R.id.btnLogout);
 
         rootAuthen = FirebaseAuth.getInstance();
         fstore = FirebaseFirestore.getInstance();
 
         userId = rootAuthen.getCurrentUser().getUid();
 
+        buttonSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String Gender = gender.getText().toString().trim();
+                String Birthyr = birthyr.getText().toString().trim();
+                String Height = height.getText().toString().trim();
+                String Weight = weight.getText().toString().trim();
+
+                Map<String,Object> user = new HashMap<>();
+                user.put("gender",Gender);
+                user.put("birthyr",Birthyr);
+                user.put("height",Height);
+                user.put("weight",Weight);
+
+                fstore.collection("users").document(userId).set(user, SetOptions.merge()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(user_information.this, "User information added", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+/*
+                DocumentReference documentReference = fstore.collection("users").document(userId);
+                Map<String,Object> user = new HashMap<>();
+                user.put("gender",Gender);
+                user.put("birthyr",Birthyr);
+                user.put("height",Height);
+                user.put("weight",Weight);
+
+                documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Log.d(TAG,"onscuess" + userId);
+                    }
+                });
+*/
+
+                /*
+                HashMap<String,Object> hashMap = new HashMap<>();
+                hashMap.put("gender",Gender);
+                hashMap.put("birthyr",Birthyr);
+                hashMap.put("height",Height);
+                hashMap.put("weight",Weight);
+
+                FirebaseFirestore.getInstance().collection("users").document(userId).set(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(user_information.this, "Saved", Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(user_information.this, ""+ e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                 */
+
+            }
+        });
+
+
+/*
         gender.setText(Gender);
         birthdate.setText(Birthdate);
         gender.setText(Height);
@@ -71,7 +141,7 @@ public class user_information extends AppCompatActivity {
 
 
         Log.d(TAG, "onCreate: " + Gender + " " + Birthdate + " " + Height + " " + Weight);
-
+*/
 /*
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,6 +203,11 @@ public class user_information extends AppCompatActivity {
     }
     public void User_To_Account (View view){
         Intent intent = new Intent(user_information.this, change_name.class);
+        startActivity(intent);
+    }
+
+    public void Logout (View view){
+        Intent intent = new Intent(user_information.this, main_page.class);
         startActivity(intent);
     }
 }
