@@ -26,7 +26,7 @@ public class landing_page extends AppCompatActivity {
     }
 
     private void openhome() {
-        Intent intent = new Intent(this, user_information.class);
+        Intent intent = new Intent(this, home_page.class);
         startActivity(intent);
     }
 }

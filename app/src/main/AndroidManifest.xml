@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Capstone1">
         <activity
+            android:name=".health_measurements"
+            android:exported="true" />
+        <activity
+            android:name=".home_page"
+            android:exported="true" />
+        <activity
             android:name=".change_name"
             android:exported="true" />
         <activity
