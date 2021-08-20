@@ -17,4 +17,8 @@ public class home_page extends AppCompatActivity {
         Intent intent = new Intent(this, health_measurements.class);
         startActivity(intent);
     }
+    public void Home_To_User(View view){
+        Intent intent = new Intent(this, user_information.class);
+        startActivity(intent);
+    }
 }
