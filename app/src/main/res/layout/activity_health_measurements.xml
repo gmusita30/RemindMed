@@ -255,13 +255,13 @@
         android:id="@+id/bloodpressureinput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginBottom="12dp"
         android:ems="10"
         android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/cholesterol_levels_txt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.605"
         app:layout_constraintStart_toEndOf="@+id/blood_pressure_txt"
-        app:layout_constraintTop_toTopOf="@+id/btnsavehealth"
         tools:ignore="MissingConstraints" />
 
     <EditText

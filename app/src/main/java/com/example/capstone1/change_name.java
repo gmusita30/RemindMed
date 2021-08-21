@@ -1,6 +1,7 @@
 package com.example.capstone1;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -16,7 +17,10 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,6 +32,7 @@ public class change_name extends AppCompatActivity {
     Button savebtn;
     EditText editfirstname, editlastname, editemail;
     public static final String TAG = "TAG";
+    String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,15 +42,21 @@ public class change_name extends AppCompatActivity {
         Intent data = getIntent();
         String firstname = data.getStringExtra("firstname");
         String lastname = data.getStringExtra("lastname");
+        String email = data.getStringExtra("email");
 
         rootAuthen = FirebaseAuth.getInstance();
         fstore = FirebaseFirestore.getInstance();
         user = rootAuthen.getCurrentUser();
 
+
         editfirstname = findViewById(R.id.editfirstname);
         editlastname = findViewById(R.id.editlastname);
         editemail = findViewById(R.id.editemail);
         savebtn = findViewById(R.id.buttonsave);
+
+
+
+        userId = rootAuthen.getCurrentUser().getUid();
 
         savebtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,10 +94,21 @@ public class change_name extends AppCompatActivity {
             }
         });
 
-        editfirstname.setText(firstname);
-        editlastname.setText(lastname);
+
 
         Log.d(TAG, "onCreate: " + firstname + " " + lastname);
+
+        DocumentReference documentReference = fstore.collection("users").document(userId);
+        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                editemail.setText(value.getString("email"));
+                editfirstname.setText(value.getString("firstname"));
+                editlastname.setText(value.getString("lastname"));
+
+            }
+        });
+
     }
     public void Change_To_User (View view){
         Intent intent = new Intent(change_name.this, user_information.class);

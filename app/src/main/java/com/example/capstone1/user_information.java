@@ -198,6 +198,10 @@ public class user_information extends AppCompatActivity {
                 email.setText(value.getString("email"));
                 firstname.setText(value.getString("firstname"));
                 lastname.setText(value.getString("lastname"));
+                gender.setText(value.getString("gender"));
+                birthyr.setText(value.getString("birthyr"));
+                height.setText(value.getString("height"));
+                weight.setText(value.getString("weight"));
             }
         });
     }

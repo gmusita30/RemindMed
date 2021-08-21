@@ -34,7 +34,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginBottom="672dp"
         android:fontFamily="@font/viga"
-        android:text="Welcome, name"
+        android:text="Welcome, "
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -62,8 +62,8 @@
         android:layout_marginBottom="200dp"
         android:background="@drawable/edit_round"
         android:fontFamily="sans-serif-medium"
-        android:text="Add Measurements"
         android:onClick="Home_To_Health"
+        android:text="Add Measurements"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="26sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -172,6 +172,20 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/firstnameview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="152dp"
+        android:layout_marginBottom="672dp"
+        android:fontFamily="@font/viga"
+        android:text="TextView"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+    />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

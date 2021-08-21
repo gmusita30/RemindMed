@@ -1,6 +1,7 @@
 package com.example.capstone1;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -12,14 +13,18 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.SetOptions;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class health_measurements extends AppCompatActivity {
-    EditText bloodpressure, cholesterol, sugar, heartrate, pulserate, sleep;
+    EditText bloodpressure, cholesterol, sugar, temperature, heartrate, pulserate, sleep;
     Button buttonsavehealth;
     FirebaseAuth rootAuthen;
     FirebaseFirestore fstore;
@@ -33,6 +38,7 @@ public class health_measurements extends AppCompatActivity {
         bloodpressure = findViewById(R.id.bloodpressureinput);
         cholesterol = findViewById(R.id.cholesterolinput);
         sugar = findViewById(R.id.sugarinput);
+        temperature = findViewById(R.id.temperatureinput);
         heartrate = findViewById(R.id.heartinput);
         pulserate = findViewById(R.id.pulseinput);
         sleep = findViewById(R.id.sleepinput);
@@ -49,6 +55,7 @@ public class health_measurements extends AppCompatActivity {
                 String Bloodpressure = bloodpressure.getText().toString().trim();
                 String Cholesterol = cholesterol.getText().toString().trim();
                 String Sugar = sugar.getText().toString().trim();
+                String Temperature = temperature.getText().toString().trim();
                 String Heartrate = heartrate.getText().toString().trim();
                 String Pulserate = pulserate.getText().toString().trim();
                 String Sleep = sleep.getText().toString().trim();
@@ -57,6 +64,7 @@ public class health_measurements extends AppCompatActivity {
                 user.put("bloodpressure",Bloodpressure);
                 user.put("Cholesterol",Cholesterol);
                 user.put("Sugar",Sugar);
+                user.put("Temperature",Temperature);
                 user.put("Heartrate",Heartrate);
                 user.put("Pulserate",Pulserate);
                 user.put("Sleep",Sleep);
@@ -69,6 +77,21 @@ public class health_measurements extends AppCompatActivity {
                         }
                     }
                 });
+
+            }
+        });
+
+        DocumentReference documentReference = fstore.collection("users").document(userId);
+        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                bloodpressure.setText(value.getString("bloodpressure"));
+                cholesterol.setText(value.getString("Cholesterol"));
+                sugar.setText(value.getString("Sugar"));
+                temperature.setText(value.getString("Temperature"));
+                heartrate.setText(value.getString("Heartrate"));
+                pulserate.setText(value.getString("Pulserate"));
+                sleep.setText(value.getString("Sleep"));
 
             }
         });
