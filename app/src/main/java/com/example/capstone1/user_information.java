@@ -9,8 +9,10 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,11 +42,15 @@ public class user_information extends AppCompatActivity {
     FirebaseAuth rootAuthen;
     FirebaseFirestore fstore;
     String userId;
+    
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_information);
+
+
 
         /*
         Intent data = getIntent();
@@ -54,8 +60,8 @@ public class user_information extends AppCompatActivity {
         String Weight = data.getStringExtra("Weight");
 */
         email = findViewById(R.id.emailview);
-        firstname = findViewById(R.id.firstview);
-        lastname = findViewById(R.id.lastview);
+        //firstname = findViewById(R.id.firstview);
+        //lastname = findViewById(R.id.lastview);
 
         gender = findViewById(R.id.editTextgender);
         birthyr = findViewById(R.id.editTextbirth);
@@ -196,8 +202,8 @@ public class user_information extends AppCompatActivity {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                 email.setText(value.getString("email"));
-                firstname.setText(value.getString("firstname"));
-                lastname.setText(value.getString("lastname"));
+                //firstname.setText(value.getString("firstname"));
+                //lastname.setText(value.getString("lastname"));
                 gender.setText(value.getString("gender"));
                 birthyr.setText(value.getString("birthyr"));
                 height.setText(value.getString("height"));
