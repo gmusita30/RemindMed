@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -61,7 +62,7 @@ public class health_measurements extends AppCompatActivity {
                 String Sleep = sleep.getText().toString().trim();
 
                 Map<String,Object> user = new HashMap<>();
-                user.put("bloodpressure",Bloodpressure);
+                user.put("Bloodpressure",Bloodpressure);
                 user.put("Cholesterol",Cholesterol);
                 user.put("Sugar",Sugar);
                 user.put("Temperature",Temperature);
@@ -85,7 +86,7 @@ public class health_measurements extends AppCompatActivity {
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                bloodpressure.setText(value.getString("bloodpressure"));
+                bloodpressure.setText(value.getString("Bloodpressure"));
                 cholesterol.setText(value.getString("Cholesterol"));
                 sugar.setText(value.getString("Sugar"));
                 temperature.setText(value.getString("Temperature"));
@@ -95,5 +96,33 @@ public class health_measurements extends AppCompatActivity {
 
             }
         });
+    }
+    public void Health_To_Cholesterol (View view){
+        Intent intent = new Intent(health_measurements.this, new_measurements_cholesterol.class);
+        startActivity(intent);
+    }
+    public void Health_To_Sugar (View view){
+        Intent intent = new Intent(health_measurements.this, new_measurements_bloodsugar.class);
+        startActivity(intent);
+    }
+    public void Health_To_Temperature (View view){
+        Intent intent = new Intent(health_measurements.this, new_measurements_temperature.class);
+        startActivity(intent);
+    }
+    public void Health_To_Heartrate (View view){
+        Intent intent = new Intent(health_measurements.this, new_measurements_heartrate.class);
+        startActivity(intent);
+    }
+    public void Health_To_Sleep (View view){
+        Intent intent = new Intent(health_measurements.this, new_measurements_hours_of_sleep.class);
+        startActivity(intent);
+    }
+    public void Health_To_Pulserate (View view){
+        Intent intent = new Intent(health_measurements.this, new_measurements_pulserate.class);
+        startActivity(intent);
+    }
+    public void Health_To_Bloodpressure (View view){
+        Intent intent = new Intent(health_measurements.this, new_measurements_bloodpressure.class);
+        startActivity(intent);
     }
 }

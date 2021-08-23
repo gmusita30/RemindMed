@@ -12,6 +12,36 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Capstone1">
         <activity
+            android:name=".new_measurements_bloodpressure"
+            android:exported="true" />
+        <activity
+            android:name=".new_measurements_pulserate"
+            android:exported="true" />
+        <activity
+            android:name=".new_measurements_hours_of_sleep"
+            android:exported="true" />
+        <activity
+            android:name=".new_measurements_heartrate"
+            android:exported="true" />
+        <activity
+            android:name=".new_measurements_temperature"
+            android:exported="true" />
+        <activity
+            android:name=".new_measurements_bloodsugar"
+            android:exported="true" />
+        <activity
+            android:name=".new_measurements_cholesterol"
+            android:exported="true" />
+        <activity
+            android:name=".instruction_slidethree"
+            android:exported="true" />
+        <activity
+            android:name=".instruction_slidetwo"
+            android:exported="true" />
+        <activity
+            android:name=".instruction_slideone"
+            android:exported="true" />
+        <activity
             android:name=".health_measurements"
             android:exported="true" />
         <activity
