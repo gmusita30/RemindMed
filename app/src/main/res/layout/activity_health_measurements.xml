@@ -17,22 +17,6 @@
         app:srcCompat="@drawable/healthmeasurement" />
 
 
-    <EditText
-        android:id="@+id/sugarinput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="2dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/body_temperature_txt"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.176"
-        app:layout_constraintStart_toEndOf="@+id/blood_sugar_txt"
-        app:layout_constraintTop_toBottomOf="@+id/cholesterolinput"
-        app:layout_constraintVertical_bias="0.388"
-        tools:ignore="MissingConstraints" />
-
     <ImageView
         android:id="@+id/redBackground4"
         android:layout_width="522dp"
@@ -63,7 +47,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginBottom="436dp"
         android:text="Blood Pressure"
-        android:onClick="Health_To_Bloodpressure"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -74,9 +57,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginBottom="376dp"
+        android:layout_marginBottom="380dp"
         android:text="Cholesterol Levels"
-        android:onClick="Health_To_Cholesterol"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -87,9 +69,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginBottom="320dp"
+        android:layout_marginBottom="328dp"
         android:text="Blood Sugar Level"
-        android:onClick="Health_To_Sugar"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -100,9 +81,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginBottom="264dp"
+        android:layout_marginBottom="276dp"
+
         android:text="Body Temperature"
-        android:onClick="Health_To_Temperature"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -115,7 +96,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginBottom="220dp"
         android:text="Heart Rate"
-        android:onClick="Health_To_Heartrate"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -127,8 +107,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="168dp"
+
         android:text="Pulse Rate"
-        android:onClick="Health_To_Pulserate"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -141,7 +121,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginBottom="116dp"
         android:text="Hours of Sleep"
-        android:onClick="Health_To_Sleep"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -268,101 +247,98 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <EditText
-        android:id="@+id/bloodpressureinput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/cholesterol_levels_txt"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.605"
-        app:layout_constraintStart_toEndOf="@+id/blood_pressure_txt"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/cholesterolinput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="2dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/blood_sugar_txt"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.404"
-        app:layout_constraintStart_toEndOf="@+id/cholesterol_levels_txt"
-        app:layout_constraintTop_toBottomOf="@+id/bloodpressureinput"
-        app:layout_constraintVertical_bias="0.588" />
-
-    <EditText
-        android:id="@+id/temperatureinput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="2dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/heartinput"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintStart_toEndOf="@+id/body_temperature_txt"
-        app:layout_constraintTop_toBottomOf="@+id/sugarinput"
-        app:layout_constraintVertical_bias="0.285" />
-
-    <EditText
-        android:id="@+id/heartinput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="72dp"
-        android:layout_marginBottom="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/pulseinput"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintStart_toEndOf="@+id/heart_rate_txt"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/pulseinput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="72dp"
-        android:layout_marginBottom="13dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/sleepinput"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.222"
-        app:layout_constraintStart_toEndOf="@+id/pulse_rate_txt"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/sleepinput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginBottom="100dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintStart_toEndOf="@+id/hours_of_sleep"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/btnsavehealth"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="196dp"
-        android:text="Save"
-        app:layout_constraintBottom_toTopOf="@+id/blood_pressure_txt"
+    <ImageButton
+        android:id="@+id/userButtonbp"
+        android:layout_width="42dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="324dp"
+        android:layout_marginTop="120dp"
+        android:backgroundTint="#FFFFFF"
+        android:onClick="Health_To_Bloodpressure"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/redBackground4"
+        app:srcCompat="@drawable/arrow_three" />
+
+    <ImageButton
+        android:id="@+id/userButtonchol"
+        android:layout_width="42dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="#FFFFFF"
+        android:onClick="Health_To_Cholesterol"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.878"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userButtonbp"
+        app:srcCompat="@drawable/arrow_three"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/userButtonsugar"
+        android:layout_width="42dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="#FFFFFF"
+        android:onClick="Health_To_Sugar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.878"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userButtonchol"
+        app:srcCompat="@drawable/arrow_three"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/userButtontemp"
+        android:layout_width="42dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="13dp"
+        android:backgroundTint="#FFFFFF"
+        android:onClick="Health_To_Temperature"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.88"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userButtonsugar"
+        app:srcCompat="@drawable/arrow_three"
+        tools:ignore="DuplicateIds" />
+
+    <ImageButton
+        android:id="@+id/userButtonheart"
+        android:layout_width="42dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="13dp"
+        android:backgroundTint="#FFFFFF"
+        android:onClick="Health_To_Heartrate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.88"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userButtontemp"
+        app:srcCompat="@drawable/arrow_three" />
+
+    <ImageButton
+        android:id="@+id/userButtonpulse"
+        android:layout_width="42dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="#FFFFFF"
+        android:onClick="Health_To_Pulserate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.88"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userButtonheart"
+        app:srcCompat="@drawable/arrow_three" />
+
+    <ImageButton
+        android:id="@+id/userButtonsleep"
+        android:layout_width="42dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="#FFFFFF"
+        android:onClick="Health_To_Sleep"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.878"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userButtonpulse"
+        app:srcCompat="@drawable/arrow_three" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

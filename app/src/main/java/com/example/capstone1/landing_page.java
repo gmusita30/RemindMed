@@ -26,7 +26,7 @@ public class landing_page extends AppCompatActivity {
     }
 
     private void openhome() {
-        Intent intent = new Intent(this, home_page.class);
+        Intent intent = new Intent(this, instruction_slideone.class);
         startActivity(intent);
     }
 }

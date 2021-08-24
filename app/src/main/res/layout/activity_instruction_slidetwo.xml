@@ -44,4 +44,15 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <ImageView
+        android:id="@+id/nextbtn"
+        android:layout_width="514dp"
+        android:layout_height="266dp"
+        android:layout_marginStart="76dp"
+        android:onClick="Two_To_Three"
+        android:layout_marginTop="552dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/next" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

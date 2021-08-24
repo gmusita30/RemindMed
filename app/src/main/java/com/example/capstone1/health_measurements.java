@@ -25,8 +25,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class health_measurements extends AppCompatActivity {
-    EditText bloodpressure, cholesterol, sugar, temperature, heartrate, pulserate, sleep;
-    Button buttonsavehealth;
+    //EditText bloodpressure, cholesterol, sugar, temperature, heartrate, pulserate, sleep;
+    //Button buttonsavehealth;
     FirebaseAuth rootAuthen;
     FirebaseFirestore fstore;
     String userId;
@@ -35,7 +35,7 @@ public class health_measurements extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_health_measurements);
-
+/*
         bloodpressure = findViewById(R.id.bloodpressureinput);
         cholesterol = findViewById(R.id.cholesterolinput);
         sugar = findViewById(R.id.sugarinput);
@@ -96,6 +96,8 @@ public class health_measurements extends AppCompatActivity {
 
             }
         });
+
+ */
     }
     public void Health_To_Cholesterol (View view){
         Intent intent = new Intent(health_measurements.this, new_measurements_cholesterol.class);
