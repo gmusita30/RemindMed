@@ -29,4 +29,11 @@
         <item>Days</item>
         <item>Weeks</item>
     </string-array>
+
+    <string-array name="gender">
+        <item>Choose one</item>
+        <item>Female</item>
+        <item>Male</item>
+        <item>Prefer not to say</item>
+    </string-array>
 </resources>
