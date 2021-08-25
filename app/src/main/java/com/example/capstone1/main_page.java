@@ -22,7 +22,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class main_page extends AppCompatActivity {
  
-    Button create_account,mema;
+    Button create_account;
     Button login;
     Button guest;
     FirebaseAuth rootAuthen;

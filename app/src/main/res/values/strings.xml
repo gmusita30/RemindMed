@@ -16,6 +16,7 @@
     <string name="history">History</string>
     <string name="profile">Profile</string>
     <string name="textview">TextView</string>
+    <string name="create_an_account">Create an Account</string>
 
     <string-array name="type">
         <item>Choose one</item>
