@@ -41,7 +41,7 @@ public class create_account extends AppCompatActivity {
         password =findViewById(R.id.passwordBox);
         confirm =findViewById(R.id.confimpassword);
         emailInput =findViewById(R.id.emailBox);
-        buttonSignUp = findViewById(R.id.btnSign);
+        buttonSignUp = findViewById(R.id.submit_btn);
 
         root = FirebaseDatabase.getInstance();
         reference = root.getReference("User");

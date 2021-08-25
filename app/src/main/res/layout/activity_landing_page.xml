@@ -7,7 +7,7 @@
     tools:context=".landing_page">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/logo"
         android:layout_width="795dp"
         android:layout_height="1093dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -17,13 +17,14 @@
         app:srcCompat="@drawable/logo" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/nextbtn"
         android:layout_width="514dp"
         android:layout_height="266dp"
-        android:layout_marginStart="48dp"
+        android:layout_marginStart="76dp"
         android:layout_marginTop="528dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/next" />
+        app:srcCompat="@drawable/next"
+        tools:ignore="OnClick" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

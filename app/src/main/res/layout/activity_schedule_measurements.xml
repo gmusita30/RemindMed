@@ -19,7 +19,7 @@
 
 
     <Button
-        android:id="@+id/add_medications_btn"
+        android:id="@+id/set_now_btn"
         android:layout_width="314dp"
         android:layout_height="146dp"
         android:layout_marginStart="48dp"
@@ -33,7 +33,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/add_measurements_btn"
+        android:id="@+id/set_later_btn"
         android:layout_width="314dp"
         android:layout_height="146dp"
         android:layout_marginStart="48dp"

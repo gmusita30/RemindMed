@@ -19,7 +19,6 @@
         app:srcCompat="@drawable/background" />
 
     <TextView
-        android:id="@+id/newMeasurements"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="668dp"
@@ -32,26 +31,29 @@
 
 
     <TextView
-        android:id="@+id/bloodPressure_txt"
+        android:id="@+id/medicineName_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="592dp"
+        android:layout_marginBottom="616dp"
         android:text="Medicine Name"
         android:textColor="#000000"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+
     <EditText
-        android:id="@+id/bloodPressure_Box"
+        android:id="@+id/medicine_Box"
         android:layout_width="295dp"
         android:layout_height="57dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="524dp"
+        android:layout_marginBottom="552dp"
         android:background="@drawable/edittext3"
         android:ems="10"
+        android:hint="Medicine Name"
         android:inputType="textPersonName"
+        android:paddingStart="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -60,7 +62,7 @@
         android:layout_width="46dp"
         android:layout_height="49dp"
         android:layout_marginStart="328dp"
-        android:layout_marginBottom="524dp"
+        android:layout_marginBottom="552dp"
         android:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -71,23 +73,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="484dp"
+        android:layout_marginBottom="516dp"
         android:text="Dosage"
         android:textColor="#000000"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-
     <EditText
         android:id="@+id/DosageBox"
         android:layout_width="149dp"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="424dp"
+        android:layout_marginBottom="460dp"
         android:background="@drawable/edittext3"
         android:ems="10"
+        android:hint="Dosage"
         android:inputType="textPersonName"
+        android:paddingStart="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -95,21 +98,20 @@
         android:id="@+id/type_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="180dp"
-        android:layout_marginBottom="484dp"
+        android:layout_marginStart="172dp"
+        android:layout_marginBottom="8dp"
         android:text="Type/Unit"
         android:textColor="#000000"
         android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/type_spinner_one"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Spinner
-        android:id="@+id/type_spinner"
+        android:id="@+id/type_spinner_one"
         android:layout_width="178dp"
         android:layout_height="48dp"
         android:layout_marginEnd="60dp"
-        android:layout_marginBottom="424dp"
-        android:background="@drawable/edittext3"
+        android:layout_marginBottom="460dp"
         android:backgroundTint="#FDCB00"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -119,7 +121,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="384dp"
+        android:layout_marginBottom="424dp"
         android:text="Time"
         android:textColor="#000000"
         android:textSize="22sp"
@@ -127,26 +129,27 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/timeBtn"
+        android:id="@+id/timeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="324dp"
+        android:layout_marginBottom="364dp"
         android:width="125dp"
         android:height="50dp"
+        android:background="@drawable/edittext3"
         android:onClick="popTimePicker"
         android:text="Set Time"
-        android:background="@drawable/edittext3"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="OnClick" />
 
     <ImageButton
         android:id="@+id/add_btn"
         android:layout_width="51dp"
         android:layout_height="47dp"
-        android:layout_marginStart="148dp"
-        android:layout_marginBottom="324dp"
+        android:layout_marginStart="156dp"
+        android:layout_marginBottom="368dp"
         android:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -157,20 +160,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="284dp"
+        android:layout_marginBottom="13dp"
         android:text="Frequency"
         android:textColor="#000000"
         android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/frequency_spinner_ten"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Spinner
-        android:id="@+id/frequency_spinner3"
+        android:id="@+id/frequency_spinner_ten"
         android:layout_width="143dp"
         android:layout_height="54dp"
         android:layout_marginEnd="252dp"
-        android:layout_marginBottom="220dp"
-        android:background="@drawable/edittext3"
+        android:layout_marginBottom="252dp"
+        android:backgroundTint="#FDCB00"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -178,8 +181,8 @@
         android:id="@+id/inventory_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="81dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginBottom="12dp"
         android:text="Inventory"
         android:textColor="#000000"
         android:textSize="22sp"
@@ -190,11 +193,13 @@
         android:id="@+id/inventoryBox"
         android:layout_width="118dp"
         android:layout_height="55dp"
-        android:layout_marginStart="196dp"
-        android:layout_marginBottom="220dp"
+        android:layout_marginStart="184dp"
+        android:layout_marginBottom="252dp"
         android:background="@drawable/edittext3"
         android:ems="10"
+        android:hint="Inventory"
         android:inputType="textPersonName"
+        android:paddingStart="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -203,7 +208,7 @@
         android:layout_width="46dp"
         android:layout_height="49dp"
         android:layout_marginStart="328dp"
-        android:layout_marginBottom="220dp"
+        android:layout_marginBottom="256dp"
         android:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -214,7 +219,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="180dp"
+        android:layout_marginBottom="212dp"
         android:text="Duration"
         android:textColor="#000000"
         android:textSize="22sp"
@@ -222,51 +227,65 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/start_btn3"
+        android:id="@+id/startButton_one"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="120dp"
+        android:layout_marginBottom="152dp"
         android:width="125dp"
         android:height="50dp"
-        android:text="Start"
-        android:drawableStart="@drawable/ic_calendar"
         android:background="@drawable/edittext3"
+        android:drawableStart="@drawable/ic_calendar"
+        android:paddingLeft="10dp"
+        android:text="Start"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/end_btn3"
+        android:id="@+id/endButton_one"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
-        android:layout_marginBottom="38dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginBottom="24dp"
         android:width="125dp"
         android:height="50dp"
         android:background="@drawable/edittext3"
-        android:text="End"
         android:drawableStart="@drawable/ic_calendar"
+        android:paddingLeft="10dp"
+        android:text="End"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/add_reminder_btn"
-        app:layout_constraintStart_toEndOf="@+id/start_btn3" />
+        app:layout_constraintBottom_toTopOf="@+id/save_changes_button"
+        app:layout_constraintStart_toEndOf="@+id/startButton_one" />
 
     <Button
-        android:id="@+id/add_reminder_btn"
+        android:id="@+id/save_changes_button"
         android:layout_width="247dp"
         android:layout_height="49dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="76dp"
         android:background="@drawable/edit_round"
         android:fontFamily="@font/viga"
         android:text="Add Reminder"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#FFFFFF"
-        android:textSize="20sp"
+        android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.432"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageBack5"
+        android:layout_width="64dp"
+        android:layout_height="68dp"
+        android:layout_marginEnd="352dp"
+        android:layout_marginBottom="692dp"
+        android:backgroundTint="#E73927"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/backarrow" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
