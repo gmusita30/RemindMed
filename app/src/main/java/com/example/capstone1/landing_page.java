@@ -20,12 +20,12 @@ public class landing_page extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openhome();
+                openinstructions();
             }
         });
     }
 
-    private void openhome() {
+    private void openinstructions() {
         Intent intent = new Intent(this, instruction_slideone.class);
         startActivity(intent);
     }

@@ -79,7 +79,7 @@ public class change_name extends AppCompatActivity {
                             @Override
                             public void onSuccess(Void unused) {
                                 Toast.makeText(change_name.this, "Updated", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(getApplicationContext(),home_page.class));
+                                startActivity(new Intent(getApplicationContext(),homee_page.class));
                                 finish();
                             }
                         });

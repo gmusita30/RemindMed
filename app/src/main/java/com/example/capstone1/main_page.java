@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class main_page extends AppCompatActivity {
-
+ 
     Button create_account,mema;
     Button login;
     Button guest;

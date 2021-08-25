@@ -33,7 +33,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 //import com.google.firebase.database.FirebaseDatabase;
-
+ 
 public class create_account extends AppCompatActivity {
     public static final String TAG = "TAG";
     EditText first, last, password, confirm, emailInput, gender, birthyr, height, weight;

@@ -52,6 +52,7 @@ public class user_information extends AppCompatActivity {
 
 
 
+
         /*
         Intent data = getIntent();
         String Gender = data.getStringExtra("Gender");

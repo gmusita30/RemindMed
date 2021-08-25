@@ -15,7 +15,7 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
-public class home_page extends AppCompatActivity {
+public class homee_page extends AppCompatActivity {
     FirebaseFirestore fstore;
     FirebaseAuth rootAuthen;
     String userId;

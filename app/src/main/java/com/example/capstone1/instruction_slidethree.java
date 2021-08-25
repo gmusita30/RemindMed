@@ -14,7 +14,7 @@ public class instruction_slidethree extends AppCompatActivity {
         setContentView(R.layout.activity_instruction_slidethree);
     }
     public void Three_To_Home (View view){
-        Intent intent = new Intent(instruction_slidethree.this, home_page.class);
+        Intent intent = new Intent(instruction_slidethree.this, main_page.class);
         startActivity(intent);
     }
 }
