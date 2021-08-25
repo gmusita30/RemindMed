@@ -7,7 +7,6 @@ import android.widget.TextView;
 
 public class history_page extends AppCompatActivity {
 
-    public TextView history;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
