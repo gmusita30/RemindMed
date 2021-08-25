@@ -1,8 +1,8 @@
 package com.example.capstone1;
 
-import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
 
 public class instruction_slidethree extends AppCompatActivity {
 

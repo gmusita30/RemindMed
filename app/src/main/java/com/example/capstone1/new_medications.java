@@ -1,5 +1,7 @@
 package com.example.capstone1;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.app.AlertDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
@@ -8,8 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TimePicker;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Locale;
 
