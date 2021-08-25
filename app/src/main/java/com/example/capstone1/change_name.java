@@ -30,7 +30,7 @@ public class change_name extends AppCompatActivity {
     FirebaseFirestore fstore;
     FirebaseUser user;
     Button savebtn;
-    EditText editfirstname, editlastname, editemail;
+    EditText editfirstname, editlastname, editemail, mem;
     public static final String TAG = "TAG";
     String userId;
 
