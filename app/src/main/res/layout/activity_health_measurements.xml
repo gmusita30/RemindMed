@@ -17,6 +17,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/background" />
 
+    <ImageButton
+        android:id="@+id/imageBack2"
+        android:layout_width="64dp"
+        android:layout_height="68dp"
+        android:layout_marginEnd="360dp"
+        android:layout_marginBottom="696dp"
+        android:backgroundTint="#E73927"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/backarrow" />
+
     <TextView
         android:id="@+id/healthMeasurements"
         android:layout_width="wrap_content"
@@ -303,14 +314,4 @@
         app:layout_constraintStart_toStartOf="parent" />
 
 
-    <ImageButton
-        android:id="@+id/imageBack2"
-        android:layout_width="64dp"
-        android:layout_height="68dp"
-        android:layout_marginEnd="360dp"
-        android:layout_marginBottom="696dp"
-        android:backgroundTint="#E73927"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/backarrow" />
 </androidx.constraintlayout.widget.ConstraintLayout>

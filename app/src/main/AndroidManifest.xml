@@ -12,6 +12,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Capstone1">
         <activity
+            android:name=".optical_character_recognition_one"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".optical_character_recognition"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".new_measurements_bloodpressure"
             android:exported="true" />
         <activity
