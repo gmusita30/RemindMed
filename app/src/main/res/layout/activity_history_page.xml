@@ -34,7 +34,20 @@
         android:layout_marginStart="16dp"
         android:layout_marginBottom="672dp"
         android:fontFamily="@font/viga"
-        android:text="Welcome, name"
+        android:text="Welcome,"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/firstnameview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="156dp"
+        android:layout_marginBottom="672dp"
+        android:fontFamily="@font/viga"
+        android:text="name"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
