@@ -91,6 +91,7 @@ public class new_measurements_bloodsugar extends AppCompatActivity {
         });
     }
 
+    //added spinner and timePicker
 
         public void Bloodpressure_To_Health (View view){
             Intent intent = new Intent(new_measurements_bloodsugar.this, health_measurements.class);

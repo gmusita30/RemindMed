@@ -224,6 +224,7 @@ public class user_information extends AppCompatActivity {
         Intent intent = new Intent(user_information.this, main_page.class);
         startActivity(intent);
 
+        //added spinner and
         Spinner mySpinnerone = (Spinner) findViewById(R.id.gender_spinner);
 
         ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(user_information.this,

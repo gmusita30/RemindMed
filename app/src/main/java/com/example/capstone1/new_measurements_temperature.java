@@ -87,6 +87,7 @@ public class new_measurements_temperature extends AppCompatActivity {
             }
         });
     }
+    //added spinner and timePicker
     public void Temperature_To_Health (View view){
         Intent intent = new Intent(new_measurements_temperature.this, health_measurements.class);
         startActivity(intent);

@@ -95,6 +95,7 @@ public class new_measurements_hours_of_sleep extends AppCompatActivity {
             }
         });
     }
+    //added spinner and timePicker
     public void Sleep_To_Health (View view){
         Intent intent = new Intent(new_measurements_hours_of_sleep.this, health_measurements.class);
         startActivity(intent);

@@ -96,6 +96,7 @@ public class new_measurements_cholesterol extends AppCompatActivity {
             }
         });
     }
+    //added spinner and timePicker
     public void Cholesterol_To_Health (View view){
         Intent intent = new Intent(new_measurements_cholesterol.this, health_measurements.class);
         startActivity(intent);
@@ -127,6 +128,7 @@ public class new_measurements_cholesterol extends AppCompatActivity {
         timePickerDialog.show();
     }
 }
+
 
 
 

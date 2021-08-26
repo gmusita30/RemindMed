@@ -89,6 +89,8 @@ public class new_measurements_heartrate extends AppCompatActivity {
             }
         });
     }
+
+    //added spinner and timePicker
     public void Heartrate_To_Health (View view){
         Intent intent = new Intent(new_measurements_heartrate.this, health_measurements.class);
         startActivity(intent);

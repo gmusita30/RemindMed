@@ -13,6 +13,8 @@ public class edit_delete_medications extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_delete_medications);
 
+        //added spinner
+
         Spinner mySpinner = (Spinner) findViewById(R.id.type_spinner_two);
         Spinner mySpinnertwo = (Spinner) findViewById(R.id.frequency_spinner_two);
 

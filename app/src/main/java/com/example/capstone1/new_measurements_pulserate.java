@@ -91,7 +91,7 @@ public class new_measurements_pulserate extends AppCompatActivity {
             }
         });
     }
-
+    //added spinner and timePicker
     public void Pulserate_To_Health(View view) {
         Intent intent = new Intent(new_measurements_pulserate.this, health_measurements.class);
         startActivity(intent);

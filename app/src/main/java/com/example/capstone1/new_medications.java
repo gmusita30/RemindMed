@@ -18,6 +18,7 @@ public class new_medications extends AppCompatActivity {
     Button timeButton;
     int hour, minute;
 
+    //added spinner and timePicker
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

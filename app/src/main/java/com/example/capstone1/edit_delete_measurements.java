@@ -13,6 +13,8 @@ public class edit_delete_measurements extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_delete_measurements);
 
+        //added spinner
+
         Spinner my_spinner = (Spinner) findViewById(R.id.frequency_spinner_one);
 
         ArrayAdapter<String> myAdapter2 = new ArrayAdapter<String>(edit_delete_measurements.this,
