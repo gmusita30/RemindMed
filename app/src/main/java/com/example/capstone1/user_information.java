@@ -42,13 +42,12 @@ public class user_information extends AppCompatActivity {
     //public static final String TAG = "TAG";
     EditText gender, birthyr, height, weight;
     Button buttonSave, buttonLogout;
-    //Spinner spinner;
-    //String [] gender = {"gay","bitch"};
     TextView email, firstname, lastname;
     FirebaseAuth rootAuthen;
     FirebaseFirestore fstore;
     String userId;
-    
+
+    Spinner spinner;
 
 
     @Override
@@ -70,14 +69,12 @@ public class user_information extends AppCompatActivity {
         //firstname = findViewById(R.id.firstview);
         //lastname = findViewById(R.id.lastview);
 
-        gender = findViewById(R.id.editTextgender);
+        spinner = findViewById(R.id.gender_spinner);
         birthyr = findViewById(R.id.editTextbirth);
         height = findViewById(R.id.editTextheight);
         weight = findViewById(R.id.editTextweight);
         buttonSave = findViewById(R.id.btnSave);
         buttonLogout = findViewById(R.id.btnLogout);
-        
-        //spinner = findViewById(R.id.gender_spinner);
 
         rootAuthen = FirebaseAuth.getInstance();
         fstore = FirebaseFirestore.getInstance();
@@ -87,17 +84,15 @@ public class user_information extends AppCompatActivity {
         //added spinner and
         //Spinner mySpinnerone = (Spinner) findViewById(R.id.gender_spinner);
 
-
-/*
         ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(user_information.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.gender));
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(myAdapter);
-*/
+
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String Gender = gender.getText().toString().trim();
+                String Gender = spinner.getSelectedItem().toString().trim();
                 String Birthyr = birthyr.getText().toString().trim();
                 String Height = height.getText().toString().trim();
                 String Weight = weight.getText().toString().trim();
@@ -223,8 +218,7 @@ public class user_information extends AppCompatActivity {
                 email.setText(value.getString("email"));
                 //firstname.setText(value.getString("firstname"));
                 //lastname.setText(value.getString("lastname"));
-                //spinner.setSelection(Integer.parseInt(value.getString("gender")));
-                gender.setText(value.getString("gender"));
+                //gender.setText(value.getString("gender"));
                 birthyr.setText(value.getString("birthyr"));
                 height.setText(value.getString("height"));
                 weight.setText(value.getString("weight"));
@@ -239,5 +233,6 @@ public class user_information extends AppCompatActivity {
     public void Logout (View view){
         Intent intent = new Intent(user_information.this, main_page.class);
         startActivity(intent);
+
     }
 }

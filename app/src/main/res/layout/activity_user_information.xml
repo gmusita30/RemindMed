@@ -7,6 +7,8 @@
     tools:context=".user_information">
 
 
+
+
     <ImageView
         android:id="@+id/redBackground4"
         android:layout_width="522dp"
@@ -89,7 +91,7 @@
         android:id="@+id/emailview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="56dp"
         android:text="Email"
         android:textColor="#000000"
         android:textSize="22sp"
@@ -115,10 +117,10 @@
         android:id="@+id/userButton"
         android:layout_width="42dp"
         android:layout_height="40dp"
-        android:onClick="User_To_Account"
         android:layout_marginStart="336dp"
         android:layout_marginTop="32dp"
         android:backgroundTint="#FFFFFF"
+        android:onClick="User_To_Account"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/redBackground4"
         app:srcCompat="@drawable/arrow_next" />
@@ -208,19 +210,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextgender"
-        android:layout_width="114dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="280dp"
-        android:layout_marginBottom="432dp"
-        android:background="@drawable/edittext3"
-        android:ems="10"
-        android:hint="Gender"
-        android:inputType="textPersonName"
-        android:paddingStart="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
+    <Spinner
+        android:id="@+id/gender_spinner"
+        android:layout_width="112dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="193dp"
+        android:layout_marginBottom="14dp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextbirth"
+        app:layout_constraintStart_toEndOf="@+id/genderView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
