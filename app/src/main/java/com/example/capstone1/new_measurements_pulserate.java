@@ -48,6 +48,7 @@ public class new_measurements_pulserate extends AppCompatActivity {
     FirebaseAuth rootAuthen;
     FirebaseFirestore fstore;
     String userId;
+    Spinner spinnerpr;
 
     Button timeButton;
     int hour, minute;
@@ -59,19 +60,29 @@ public class new_measurements_pulserate extends AppCompatActivity {
 
         pulserate = findViewById(R.id.pulse_rate_box);
         buttonsavespulserate = findViewById(R.id.btnsavepulserate);
+        spinnerpr = findViewById(R.id.frequency_spinner_eight);
 
         rootAuthen = FirebaseAuth.getInstance();
         fstore = FirebaseFirestore.getInstance();
 
         userId = rootAuthen.getCurrentUser().getUid();
 
+        //Spinner my_spinner = (Spinner) findViewById(R.id.frequency_spinner_eight);
+
+        ArrayAdapter<String> myAdapter2 = new ArrayAdapter<String>(new_measurements_pulserate.this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.frequency));
+        myAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerpr.setAdapter(myAdapter2);
+
         buttonsavespulserate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String Pulserate = pulserate.getText().toString().trim();
+                String Frequency = spinnerpr.getSelectedItem().toString().trim();
 
                 Map<String, Object> user = new HashMap<>();
                 user.put("Pulserate", Pulserate);
+                user.put("FrequencyPulseR", Frequency );
 
                 fstore.collection("users").document(userId).set(user, SetOptions.merge()).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -96,12 +107,6 @@ public class new_measurements_pulserate extends AppCompatActivity {
         Intent intent = new Intent(new_measurements_pulserate.this, health_measurements.class);
         startActivity(intent);
 
-        Spinner my_spinner = (Spinner) findViewById(R.id.frequency_spinner_eight);
-
-        ArrayAdapter<String> myAdapter2 = new ArrayAdapter<String>(new_measurements_pulserate.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.frequency));
-        myAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        my_spinner.setAdapter(myAdapter2);
     }
 
         public void popTimePicker (View view){

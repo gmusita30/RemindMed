@@ -52,6 +52,7 @@ public class new_measurements_bloodpressure extends AppCompatActivity {
     FirebaseAuth rootAuthen;
     FirebaseFirestore fstore;
     String userId;
+    Spinner spinnerbp;
 
     Button timeButton;
     int hour, minute;
@@ -63,19 +64,29 @@ public class new_measurements_bloodpressure extends AppCompatActivity {
 
         bloodpressure = findViewById(R.id.blood_pressure_box);
         buttonsavesbloodpressure = findViewById(R.id.btnsavebloodpressure);
+        spinnerbp = findViewById(R.id.frequency_spinner_four);
 
         rootAuthen = FirebaseAuth.getInstance();
         fstore = FirebaseFirestore.getInstance();
 
         userId = rootAuthen.getCurrentUser().getUid();
 
+        //Spinner my_spinner = (Spinner) findViewById(R.id.frequency_spinner_four);
+
+        ArrayAdapter<String> myAdapter2 = new ArrayAdapter<String>(new_measurements_bloodpressure.this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.frequency));
+        myAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerbp.setAdapter(myAdapter2);
+
         buttonsavesbloodpressure.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String Bloodpressure = bloodpressure.getText().toString().trim();
+                String Frequency = spinnerbp.getSelectedItem().toString().trim();
 
                 Map<String,Object> user =new HashMap<>();
                 user.put("Bloodpressure",Bloodpressure);
+                user.put("FrequencyBloodPrs",Frequency);
 
                 fstore.collection("users").document(userId).set(user, SetOptions.merge()).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -101,13 +112,6 @@ public class new_measurements_bloodpressure extends AppCompatActivity {
         Intent intent = new Intent(new_measurements_bloodpressure.this, health_measurements.class);
         startActivity(intent);
 
-        Spinner my_spinner = (Spinner) findViewById(R.id.frequency_spinner_four);
-
-        ArrayAdapter<String> myAdapter2 = new ArrayAdapter<String>(new_measurements_bloodpressure.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.frequency));
-        myAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        my_spinner.setAdapter(myAdapter2);
-
     }
 
     public void popTimePicker (View view){
@@ -126,5 +130,7 @@ public class new_measurements_bloodpressure extends AppCompatActivity {
 
         timePickerDialog.setTitle("Set Time");
         timePickerDialog.show();
+
+
     }
 }

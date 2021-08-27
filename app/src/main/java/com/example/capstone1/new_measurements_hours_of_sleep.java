@@ -51,6 +51,7 @@ public class new_measurements_hours_of_sleep extends AppCompatActivity {
     FirebaseAuth rootAuthen;
     FirebaseFirestore fstore;
     String userId;
+    Spinner spinnersl;
 
     Button timeButton;
     int hour, minute;
@@ -63,19 +64,30 @@ public class new_measurements_hours_of_sleep extends AppCompatActivity {
 
         sleep = findViewById(R.id.hours_of_sleep_box);
         buttonsavesleep = findViewById(R.id.btnsavesleep);
+        spinnersl = findViewById(R.id.frequency_spinner_seven);
 
         rootAuthen = FirebaseAuth.getInstance();
         fstore = FirebaseFirestore.getInstance();
 
         userId = rootAuthen.getCurrentUser().getUid();
 
+        //Spinner my_spinner = (Spinner) findViewById(R.id.frequency_spinner_seven);
+
+        ArrayAdapter<String> myAdapter2 = new ArrayAdapter<String>(new_measurements_hours_of_sleep.this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.frequency));
+        myAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnersl.setAdapter(myAdapter2);
+
+
         buttonsavesleep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String Sleep = sleep.getText().toString().trim();
+                String Frequency = spinnersl.getSelectedItem().toString().trim();
 
                 Map<String,Object> user =new HashMap<>();
                 user.put("Sleep",Sleep);
+                user.put("FrequencySleep",Frequency);
 
                 fstore.collection("users").document(userId).set(user, SetOptions.merge()).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -99,13 +111,6 @@ public class new_measurements_hours_of_sleep extends AppCompatActivity {
     public void Sleep_To_Health (View view){
         Intent intent = new Intent(new_measurements_hours_of_sleep.this, health_measurements.class);
         startActivity(intent);
-
-        Spinner my_spinner = (Spinner) findViewById(R.id.frequency_spinner_seven);
-
-        ArrayAdapter<String> myAdapter2 = new ArrayAdapter<String>(new_measurements_hours_of_sleep.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.frequency));
-        myAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        my_spinner.setAdapter(myAdapter2);
 
     }
 

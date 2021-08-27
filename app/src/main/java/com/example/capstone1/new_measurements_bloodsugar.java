@@ -47,6 +47,7 @@ public class new_measurements_bloodsugar extends AppCompatActivity {
     FirebaseAuth rootAuthen;
     FirebaseFirestore fstore;
     String userId;
+    Spinner spinnerbs;
 
     Button timeButton;
     int hour, minute;
@@ -58,19 +59,30 @@ public class new_measurements_bloodsugar extends AppCompatActivity {
 
         sugar = findViewById(R.id.blood_sugar_level);
         buttonsavesugar = findViewById(R.id.btnsavesugar);
+        spinnerbs = findViewById(R.id.frequency_spinner_three);
 
         rootAuthen = FirebaseAuth.getInstance();
         fstore = FirebaseFirestore.getInstance();
 
         userId = rootAuthen.getCurrentUser().getUid();
 
+        //Spinner my_spinner = (Spinner) findViewById(R.id.frequency_spinner_three);
+
+        ArrayAdapter<String> myAdapter2 = new ArrayAdapter<String>(new_measurements_bloodsugar.this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.frequency));
+        myAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerbs.setAdapter(myAdapter2);
+
+
         buttonsavesugar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String Sugar = sugar.getText().toString().trim();
+                String Frequency = spinnerbs.getSelectedItem().toString().trim();
 
                 Map<String, Object> user = new HashMap<>();
                 user.put("Sugar", Sugar);
+                user.put("FrequencyBloodSgr",Frequency);
 
                 fstore.collection("users").document(userId).set(user, SetOptions.merge()).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -93,16 +105,9 @@ public class new_measurements_bloodsugar extends AppCompatActivity {
 
     //added spinner and timePicker
 
-        public void Bloodpressure_To_Health (View view){
+        public void BloodSugar_To_Health (View view){
             Intent intent = new Intent(new_measurements_bloodsugar.this, health_measurements.class);
             startActivity(intent);
-
-            Spinner my_spinner = (Spinner) findViewById(R.id.frequency_spinner_three);
-
-            ArrayAdapter<String> myAdapter2 = new ArrayAdapter<String>(new_measurements_bloodsugar.this,
-                    android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.frequency));
-            myAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            my_spinner.setAdapter(myAdapter2);
 
         }
 
