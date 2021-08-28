@@ -7,16 +7,28 @@
     tools:context=".new_medications">
 
 
-    <ImageView
-        android:id="@+id/redBackground4"
-        android:layout_width="522dp"
-        android:layout_height="281dp"
-        android:layout_marginBottom="584dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="421dp"
+        android:layout_height="92dp"
+        android:background="#E73927"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/background" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageButton
+        android:id="@+id/imageBack"
+        android:layout_width="64dp"
+        android:layout_height="68dp"
+        android:layout_marginEnd="360dp"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="#E73927"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/backarrow" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -35,20 +47,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="616dp"
+        android:layout_marginBottom="608dp"
         android:text="Medicine Name"
         android:textColor="#000000"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-
     <EditText
         android:id="@+id/medicine_Box"
         android:layout_width="295dp"
         android:layout_height="57dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="552dp"
+        android:layout_marginBottom="544dp"
         android:background="@drawable/edittext3"
         android:ems="10"
         android:hint="Medicine Name"
@@ -73,7 +84,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="516dp"
+        android:layout_marginBottom="508dp"
         android:text="Dosage"
         android:textColor="#000000"
         android:textSize="22sp"
@@ -85,7 +96,7 @@
         android:layout_width="149dp"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="460dp"
+        android:layout_marginBottom="448dp"
         android:background="@drawable/edittext3"
         android:ems="10"
         android:hint="Dosage"
@@ -111,7 +122,7 @@
         android:layout_width="178dp"
         android:layout_height="48dp"
         android:layout_marginEnd="60dp"
-        android:layout_marginBottom="460dp"
+        android:layout_marginBottom="448dp"
         android:backgroundTint="#FDCB00"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -120,8 +131,8 @@
         android:id="@+id/time_txt1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="424dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="408dp"
         android:text="Time"
         android:textColor="#000000"
         android:textSize="22sp"
@@ -133,7 +144,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="364dp"
+        android:layout_marginBottom="340dp"
         android:width="125dp"
         android:height="50dp"
         android:background="@drawable/edittext3"
@@ -149,7 +160,7 @@
         android:layout_width="51dp"
         android:layout_height="47dp"
         android:layout_marginStart="156dp"
-        android:layout_marginBottom="368dp"
+        android:layout_marginBottom="340dp"
         android:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -172,7 +183,7 @@
         android:layout_width="143dp"
         android:layout_height="54dp"
         android:layout_marginEnd="252dp"
-        android:layout_marginBottom="252dp"
+        android:layout_marginBottom="220dp"
         android:backgroundTint="#FDCB00"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -194,7 +205,7 @@
         android:layout_width="118dp"
         android:layout_height="55dp"
         android:layout_marginStart="184dp"
-        android:layout_marginBottom="252dp"
+        android:layout_marginBottom="216dp"
         android:background="@drawable/edittext3"
         android:ems="10"
         android:hint="Inventory"
@@ -208,7 +219,7 @@
         android:layout_width="46dp"
         android:layout_height="49dp"
         android:layout_marginStart="328dp"
-        android:layout_marginBottom="256dp"
+        android:layout_marginBottom="220dp"
         android:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -219,7 +230,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="212dp"
+        android:layout_marginBottom="180dp"
         android:text="Duration"
         android:textColor="#000000"
         android:textSize="22sp"
@@ -227,11 +238,11 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/startButton_one"
+        android:id="@+id/startButton_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="152dp"
+        android:layout_marginBottom="116dp"
         android:width="125dp"
         android:height="50dp"
         android:background="@drawable/edittext3"
@@ -247,7 +258,7 @@
         android:id="@+id/endButton_one"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
+        android:layout_marginStart="44dp"
         android:layout_marginBottom="24dp"
         android:width="125dp"
         android:height="50dp"
@@ -258,13 +269,13 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/save_changes_button"
-        app:layout_constraintStart_toEndOf="@+id/startButton_one" />
+        app:layout_constraintStart_toEndOf="@+id/startButton_date" />
 
     <Button
         android:id="@+id/save_changes_button"
         android:layout_width="247dp"
         android:layout_height="49dp"
-        android:layout_marginBottom="76dp"
+        android:layout_marginBottom="44dp"
         android:background="@drawable/edit_round"
         android:fontFamily="@font/viga"
         android:text="Add Reminder"
@@ -274,18 +285,8 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.432"
+        app:layout_constraintHorizontal_bias="0.426"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageButton
-        android:id="@+id/imageBack5"
-        android:layout_width="64dp"
-        android:layout_height="68dp"
-        android:layout_marginEnd="352dp"
-        android:layout_marginBottom="692dp"
-        android:backgroundTint="#E73927"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/backarrow" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

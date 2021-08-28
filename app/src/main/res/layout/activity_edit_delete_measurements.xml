@@ -6,29 +6,64 @@
     android:layout_height="match_parent"
     tools:context=".edit_delete_measurements">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintGuide_percent="0.0"/>
 
-    <ImageView
-        android:id="@+id/redBackground4"
-        android:layout_width="522dp"
-        android:layout_height="281dp"
-        android:layout_marginBottom="584dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintGuide_percent="0.20"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintGuide_percent="0.30"/>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="421dp"
+        android:layout_height="92dp"
+        android:background="#E73927"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/background" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageButton
+        android:id="@+id/imageBack"
+        android:layout_width="64dp"
+        android:layout_height="68dp"
+        android:layout_marginEnd="348dp"
+        android:backgroundTint="#E73927"
+        app:layout_constraintBottom_toBottomOf="@+id/edit_Measurements"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/backarrow" />
 
     <TextView
         android:id="@+id/edit_Measurements"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="668dp"
+        android:layout_marginBottom="29dp"
         android:fontFamily="sans-serif"
         android:text="Edit Measurements"
         android:textColor="#FFFFFF"
-        android:textSize="35sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="33sp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent" />
 
 
@@ -37,12 +72,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="592dp"
+        android:layout_marginBottom="24dp"
         android:fontFamily="@font/viga"
         android:text="Blood pressure"
         android:textColor="#000000"
         android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textView8"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -50,25 +85,25 @@
         android:layout_width="107dp"
         android:layout_height="48dp"
         android:layout_marginStart="180dp"
-        android:layout_marginBottom="580dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/edittext3"
         android:ems="10"
         android:inputType="textPersonName"
         android:paddingStart="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textView8"
         app:layout_constraintStart_toStartOf="parent" />
 
-
     <TextView
+        android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="536dp"
+        android:layout_marginBottom="20dp"
         android:fontFamily="@font/viga"
         android:text="Time"
         android:textColor="#000000"
         android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/timeButton"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -76,14 +111,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="464dp"
+        android:layout_marginBottom="16dp"
         android:width="125dp"
         android:height="50dp"
         android:background="@drawable/edittext3"
         android:onClick="popTimePicker"
         android:text="Set Time"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/frequency_txt1"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="OnClick" />
 
@@ -92,12 +127,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="412dp"
+        android:layout_marginBottom="24dp"
         android:fontFamily="@font/viga"
         android:text="Frequency"
         android:textColor="#000000"
         android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/frequency_spinner_one"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Spinner
@@ -105,9 +140,9 @@
         android:layout_width="143dp"
         android:layout_height="54dp"
         android:layout_marginEnd="252dp"
-        android:layout_marginBottom="336dp"
+        android:layout_marginBottom="24dp"
         android:backgroundTint="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/duration_txt1"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
@@ -115,12 +150,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="288dp"
+        android:layout_marginBottom="28dp"
         android:fontFamily="@font/viga"
         android:text="Duration"
         android:textColor="#000000"
         android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/startButton_one"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -128,7 +163,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="216dp"
+        android:layout_marginBottom="32dp"
         android:width="125dp"
         android:height="50dp"
         android:background="@drawable/edittext3"
@@ -137,21 +172,21 @@
         android:text="Start"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/save_changes_button"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/endButton_one"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginBottom="32dp"
         android:width="125dp"
         android:height="50dp"
         android:background="@drawable/edittext3"
         android:drawableStart="@drawable/ic_calendar"
-        android:text="End"
         android:paddingLeft="10dp"
+        android:text="End"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/save_changes_button"
@@ -161,7 +196,7 @@
         android:id="@+id/save_changes_button"
         android:layout_width="247dp"
         android:layout_height="49dp"
-        android:layout_marginBottom="132dp"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/edit_round"
         android:fontFamily="@font/viga"
         android:text="Save Changes"
@@ -169,20 +204,9 @@
         android:textColor="#FFFFFF"
         android:textSize="22sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/deleteBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageButton
-        android:id="@+id/imageBack"
-        android:layout_width="64dp"
-        android:layout_height="68dp"
-        android:layout_marginEnd="356dp"
-        android:layout_marginBottom="68dp"
-        android:backgroundTint="#E73927"
-        app:layout_constraintBottom_toTopOf="@+id/bloodPressure_Box"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/backarrow" />
 
     <Button
         android:id="@+id/deleteBtn"

@@ -6,25 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".health_measurements">
 
-    <ImageView
-        android:id="@+id/redBackground4"
-        android:layout_width="522dp"
-        android:layout_height="281dp"
-        android:layout_marginBottom="584dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="421dp"
+        android:layout_height="92dp"
+        android:background="#E73927"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/background" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageBack2"
+        android:id="@+id/healthMeasurement_back"
         android:layout_width="64dp"
         android:layout_height="68dp"
-        android:layout_marginEnd="360dp"
-        android:layout_marginBottom="696dp"
+        android:layout_marginEnd="348dp"
         android:backgroundTint="#E73927"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/healthMeasurements"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/backarrow" />
 
@@ -32,21 +31,22 @@
         android:id="@+id/healthMeasurements"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="668dp"
+        android:layout_marginBottom="24dp"
         android:text="Health Measurements"
         android:textColor="#FFFFFF"
-        android:textSize="35sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="33sp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.732"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="530dp"
         android:layout_height="648dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginBottom="236dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="44dp"
+        android:layout_marginBottom="116dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view4"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/healthmeasurement" />
 
@@ -55,11 +55,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginBottom="416dp"
+        android:layout_marginBottom="20dp"
         android:text="Blood Pressure"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/cholesterol_levels_txt"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -67,11 +67,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginBottom="372dp"
+        android:layout_marginBottom="20dp"
         android:text="Cholesterol Levels"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/blood_sugar_txt"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -79,11 +79,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginBottom="324dp"
+        android:layout_marginBottom="16dp"
         android:text="Blood Sugar Level"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/body_temperature_txt"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -91,11 +91,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginBottom="276dp"
+        android:layout_marginBottom="16dp"
         android:text="Body Temperature"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/heart_rate_txt"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -103,11 +103,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginBottom="232dp"
+        android:layout_marginBottom="16dp"
         android:text="Heart Rate"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/pulse_rate_txt"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -115,11 +115,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginBottom="192dp"
+        android:layout_marginBottom="16dp"
         android:text="Pulse Rate"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/hours_of_sleep"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -127,91 +127,89 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginBottom="152dp"
+        android:layout_marginBottom="60dp"
         android:text="Hours of Sleep"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/view4"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/bloodPressure_button"
         android:layout_width="42dp"
         android:layout_height="40dp"
-        android:layout_marginStart="352dp"
-        android:layout_marginTop="132dp"
+        android:layout_marginStart="212dp"
         android:backgroundTint="#FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/redBackground4"
+        app:layout_constraintBottom_toTopOf="@+id/cholesterol_button"
+        app:layout_constraintStart_toEndOf="@+id/blood_pressure_txt"
         app:srcCompat="@drawable/arrow_next" />
 
     <ImageButton
         android:id="@+id/cholesterol_button"
         android:layout_width="42dp"
         android:layout_height="40dp"
-        android:layout_marginStart="352dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginStart="188dp"
+        android:layout_marginBottom="4dp"
         android:backgroundTint="#FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/redBackground4"
+        app:layout_constraintBottom_toTopOf="@+id/bloodSugar_button"
+        app:layout_constraintStart_toEndOf="@+id/cholesterol_levels_txt"
         app:srcCompat="@drawable/arrow_next" />
 
     <ImageButton
         android:id="@+id/bloodSugar_button"
         android:layout_width="42dp"
         android:layout_height="40dp"
-        android:layout_marginStart="352dp"
-        android:layout_marginTop="228dp"
+        android:layout_marginStart="192dp"
+        android:layout_marginBottom="1dp"
         android:backgroundTint="#FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/redBackground4"
+        app:layout_constraintBottom_toTopOf="@+id/temperature_button"
+        app:layout_constraintStart_toEndOf="@+id/blood_sugar_txt"
         app:srcCompat="@drawable/arrow_next" />
 
     <ImageButton
         android:id="@+id/temperature_button"
         android:layout_width="42dp"
         android:layout_height="40dp"
-        android:layout_marginStart="352dp"
-        android:layout_marginTop="276dp"
+        android:layout_marginStart="188dp"
         android:backgroundTint="#FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/redBackground4"
+        app:layout_constraintBottom_toTopOf="@+id/heartRate_button"
+        app:layout_constraintStart_toEndOf="@+id/body_temperature_txt"
         app:srcCompat="@drawable/arrow_next" />
 
     <ImageButton
         android:id="@+id/heartRate_button"
         android:layout_width="42dp"
         android:layout_height="40dp"
-        android:layout_marginStart="352dp"
-        android:layout_marginTop="324dp"
+        android:layout_marginStart="248dp"
+        android:layout_marginBottom="3dp"
         android:backgroundTint="#FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/redBackground4"
+        app:layout_constraintBottom_toTopOf="@+id/pulseRate_button"
+        app:layout_constraintStart_toEndOf="@+id/heart_rate_txt"
         app:srcCompat="@drawable/arrow_next" />
 
     <ImageButton
         android:id="@+id/pulseRate_button"
         android:layout_width="42dp"
         android:layout_height="40dp"
-        android:layout_marginStart="352dp"
-        android:layout_marginTop="364dp"
+        android:layout_marginStart="248dp"
         android:backgroundTint="#FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/redBackground4"
+        app:layout_constraintBottom_toTopOf="@+id/sleep_button"
+        app:layout_constraintStart_toEndOf="@+id/pulse_rate_txt"
         app:srcCompat="@drawable/arrow_next" />
 
     <ImageButton
         android:id="@+id/sleep_button"
         android:layout_width="42dp"
         android:layout_height="40dp"
-        android:layout_marginStart="352dp"
-        android:layout_marginTop="404dp"
+        android:layout_marginStart="216dp"
+        android:layout_marginBottom="53dp"
         android:backgroundTint="#FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/redBackground4"
+        app:layout_constraintBottom_toTopOf="@+id/view4"
+        app:layout_constraintStart_toEndOf="@+id/hours_of_sleep"
         app:srcCompat="@drawable/arrow_next" />
 
     <View
+        android:id="@+id/view4"
         android:layout_width="wrap_content"
         android:layout_height="2dp"
         android:layout_marginBottom="100dp"
@@ -226,9 +224,9 @@
         android:layout_width="56dp"
         android:layout_height="51dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="8dp"
         android:backgroundTint="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textViewHome"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/home" />
 
@@ -248,9 +246,8 @@
         android:layout_width="66dp"
         android:layout_height="61dp"
         android:layout_marginStart="44dp"
-        android:layout_marginBottom="32dp"
         android:backgroundTint="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textViewHistory"
         app:layout_constraintStart_toEndOf="@+id/imageTodayButton"
         app:srcCompat="@drawable/history" />
 
@@ -259,9 +256,9 @@
         android:layout_width="56dp"
         android:layout_height="51dp"
         android:layout_marginStart="332dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="8dp"
         android:backgroundTint="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textViewProfile"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/user" />
 
@@ -281,37 +278,37 @@
         android:id="@+id/textViewToday"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="124dp"
+        android:layout_marginStart="60dp"
         android:layout_marginBottom="8dp"
         android:text="Today"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/textViewHome" />
 
     <TextView
         android:id="@+id/textViewHistory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="240dp"
+        android:layout_marginStart="66dp"
         android:layout_marginBottom="8dp"
         android:text="History"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/textViewToday" />
 
     <TextView
         android:id="@+id/textViewProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="340dp"
+        android:layout_marginStart="44dp"
         android:layout_marginBottom="8dp"
         android:text="Profile"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/textViewHistory" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

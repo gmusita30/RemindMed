@@ -7,6 +7,16 @@
     tools:context=".Instruction_slideone">
 
     <ImageView
+        android:id="@+id/instructione_one_btn"
+        android:layout_width="514dp"
+        android:layout_height="266dp"
+        android:layout_marginStart="76dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/next"
+        tools:ignore="OnClick" />
+
+    <ImageView
         android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,13 +29,13 @@
         android:id="@+id/alertSystem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="328dp"
+        android:layout_marginBottom="13dp"
         android:fontFamily="sans-serif"
         android:text="Alert System"
         android:textColor="#000000"
         android:textSize="26sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/description3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -33,13 +43,13 @@
         android:id="@+id/description3"
         android:layout_width="354dp"
         android:layout_height="62dp"
-        android:layout_marginBottom="252dp"
+        android:layout_marginBottom="49dp"
         android:fontFamily="@font/viga"
         android:text="It has an alarm that will remind you that you need to take your medicine"
         android:textAlignment="center"
         android:textColor="#E73927"
         android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/instructione_one_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent" />

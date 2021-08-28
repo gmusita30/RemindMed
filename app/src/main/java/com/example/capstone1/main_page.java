@@ -42,22 +42,34 @@ public class main_page extends AppCompatActivity {
         rootAuthen = FirebaseAuth.getInstance();
         currentUser = rootAuthen.getCurrentUser();
 
-        create_Account.setOnClickListener(new OnClickListener() {
+
+        //   login.setOnClickListener(new OnClickListener() {
+        //     @Override
+        //   public void onClick(View view) {
+        //     openlogin_page();
+        //}
+        //});
+        // }
+
+        //public void openlogin_page() {
+        //  Intent intent = new Intent(this, login_page.class);
+        //startActivity(intent);
+        //}
+
+        guest.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Intent intent = new Intent(main_page.this, create_account.class);
-                startActivity(intent);
+                openinstruction_slideone();
             }
         });
-
-        }
-
-    public void create_account(View view) {
-        Intent intent = new Intent(main_page.this, create_account.class);
-        startActivity(intent);
     }
-}
+
+        public void openinstruction_slideone () {
+            Intent intent = new Intent(this, instruction_slideone.class);
+            startActivity(intent);
+        }
+    }
+
 
 
 
