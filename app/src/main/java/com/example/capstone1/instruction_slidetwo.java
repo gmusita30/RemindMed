@@ -5,16 +5,28 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 
 public class instruction_slidetwo extends AppCompatActivity {
+
+    private ImageView button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_instruction_slidetwo);
+
+        ImageView button = (ImageView) findViewById(R.id.instruction_two_btn);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openinstruction_slidethree();
+            }
+        });
     }
-    public void Two_To_Three (View view){
-        Intent intent = new Intent(instruction_slidetwo.this, instruction_slidethree.class);
+
+    private void openinstruction_slidethree() {
+        Intent intent = new Intent(this, instruction_slidethree.class);
         startActivity(intent);
     }
 }

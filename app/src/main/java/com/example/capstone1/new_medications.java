@@ -102,5 +102,3 @@ public class new_medications extends AppCompatActivity {
                 timePickerDialog.show();
             }
         };
-    }
-}
