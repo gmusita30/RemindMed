@@ -7,65 +7,79 @@
     tools:context=".new_measurements_bloodpressure">
 
 
-    <ImageView
-        android:id="@+id/redBackground4"
-        android:layout_width="522dp"
-        android:layout_height="281dp"
-        android:layout_marginBottom="584dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="421dp"
+        android:layout_height="92dp"
+        android:layout_marginBottom="12dp"
+        android:background="#E73927"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toTopOf="@+id/blood_pressure_box"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/background" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageButton
+        android:id="@+id/imageBack"
+        android:layout_width="64dp"
+        android:layout_height="68dp"
+        android:layout_marginEnd="360dp"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="#E73927"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/backarrow" />
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="668dp"
+        android:layout_marginBottom="28dp"
         android:text="New Measurements"
         android:textColor="#FFFFFF"
         android:textSize="35sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
 
     <TextView
         android:id="@+id/bloodPressureView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="592dp"
+        android:layout_marginBottom="30dp"
         android:text="Blood Pressure"
         android:textColor="#000000"
         android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/time_txt1"
         app:layout_constraintStart_toStartOf="parent" />
+
 
     <EditText
         android:id="@+id/blood_pressure_box"
         android:layout_width="107dp"
         android:layout_height="47dp"
-        android:layout_marginStart="180dp"
-        android:layout_marginBottom="580dp"
+        android:layout_marginStart="184dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/edittext3"
         android:ems="10"
         android:inputType="textPersonName"
         android:paddingStart="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/time_txt1"
         app:layout_constraintStart_toStartOf="parent" />
-
 
     <TextView
         android:id="@+id/time_txt1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="532dp"
+        android:layout_marginBottom="21dp"
         android:text="Time"
         android:textColor="#000000"
         android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/timeButton"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -73,14 +87,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="460dp"
+        android:layout_marginBottom="27dp"
         android:width="125dp"
         android:height="50dp"
         android:background="@drawable/edittext3"
         android:onClick="popTimePicker"
         android:text="Set Time"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/frequency_txt1"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="OnClick" />
 
@@ -89,11 +103,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="404dp"
+        android:layout_marginBottom="21dp"
         android:text="Frequency"
         android:textColor="#000000"
         android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/frequency_spinner_four"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Spinner
@@ -101,9 +115,9 @@
         android:layout_width="143dp"
         android:layout_height="54dp"
         android:layout_marginEnd="252dp"
-        android:layout_marginBottom="328dp"
+        android:layout_marginBottom="27dp"
         android:backgroundTint="#FDCB00"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/duration_txt1"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
@@ -111,11 +125,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="272dp"
+        android:layout_marginBottom="25dp"
         android:text="Duration"
         android:textColor="#000000"
         android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/startButton_one"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -123,16 +137,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="196dp"
+        android:layout_marginBottom="40dp"
         android:width="125dp"
         android:height="50dp"
         android:background="@drawable/edittext3"
         android:drawableStart="@drawable/ic_calendar"
-        android:text="Start"
         android:paddingLeft="10dp"
+        android:text="Start"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnsavebloodpressure"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -140,7 +154,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="52dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="40dp"
         android:width="125dp"
         android:height="50dp"
         android:background="@drawable/edittext3"
@@ -156,7 +170,7 @@
         android:id="@+id/btnsavebloodpressure"
         android:layout_width="247dp"
         android:layout_height="49dp"
-        android:layout_marginBottom="108dp"
+        android:layout_marginBottom="23dp"
         android:background="@drawable/edit_round"
         android:fontFamily="@font/viga"
         android:text="Save"
@@ -164,7 +178,7 @@
         android:textColor="#FFFFFF"
         android:textSize="22sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/cancel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -184,15 +198,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageButton
-        android:id="@+id/imageBack1"
-        android:layout_width="64dp"
-        android:layout_height="68dp"
-        android:layout_marginEnd="360dp"
-        android:layout_marginBottom="68dp"
-        android:backgroundTint="#E73927"
-        app:layout_constraintBottom_toTopOf="@+id/blood_pressure_box"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/backarrow" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,16 +7,39 @@
     tools:context=".user_information">
 
 
-    <ImageView
-        android:id="@+id/redBackground4"
-        android:layout_width="522dp"
-        android:layout_height="281dp"
-        android:layout_marginBottom="584dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="421dp"
+        android:layout_height="92dp"
+        android:background="#E73927"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/background" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageButton
+        android:id="@+id/imageBack"
+        android:layout_width="64dp"
+        android:layout_height="68dp"
+        android:layout_marginEnd="360dp"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="#E73927"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/backarrow" />
+
+    <ImageButton
+        android:id="@+id/accountSetting_btn"
+        android:layout_width="42dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="153dp"
+        android:layout_marginBottom="17dp"
+        android:backgroundTint="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/gender_spinner"
+        app:layout_constraintStart_toEndOf="@+id/account_settingView"
+        app:srcCompat="@drawable/arrow_next" />
 
     <TextView
         android:id="@+id/userInformation"
@@ -39,8 +62,7 @@
         android:layout_marginBottom="376dp"
         android:background="@drawable/edittext3"
         android:ems="10"
-        android:hint="Year of Birth
-"
+        android:hint="Year of Birth"
         android:inputType="textPersonName"
         android:paddingStart="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -74,17 +96,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageButton
-        android:id="@+id/imageBack5"
-        android:layout_width="64dp"
-        android:layout_height="68dp"
-        android:layout_marginEnd="352dp"
-        android:layout_marginBottom="692dp"
-        android:backgroundTint="#E73927"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/backarrow" />
-
     <TextView
         android:id="@+id/emailview"
         android:layout_width="wrap_content"
@@ -111,16 +122,7 @@
         app:layout_constraintHorizontal_bias="0.065"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageButton
-        android:id="@+id/userButton"
-        android:layout_width="42dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="336dp"
-        android:layout_marginTop="32dp"
-        android:backgroundTint="#FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/redBackground4"
-        app:srcCompat="@drawable/arrow_next" />
+
 
     <TextView
         android:id="@+id/genderView"
@@ -165,13 +167,14 @@
         android:id="@+id/weightView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="47dp"
         android:text="Weight"
         android:textColor="#000000"
         android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnSave"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.052"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="453dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnLogout"

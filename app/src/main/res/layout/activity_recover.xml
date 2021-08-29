@@ -15,28 +15,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/remindmed_logo" />
 
-    <ImageView
-        android:id="@+id/redBackground"
-        android:layout_width="522dp"
-        android:layout_height="281dp"
-        android:layout_marginBottom="588dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="421dp"
+        android:layout_height="92dp"
+        android:background="#E73927"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/background" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/resetPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginBottom="336dp"
+        android:layout_marginBottom="20dp"
         android:text="Reset Password"
         android:textColor="#FFFFFF"
         android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/newPassword_txtbox"
-        app:layout_constraintStart_toStartOf="@+id/redBackground" />
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        tools:layout_editor_absoluteX="0dp" />
 
     <TextView
         android:id="@+id/newPass"
