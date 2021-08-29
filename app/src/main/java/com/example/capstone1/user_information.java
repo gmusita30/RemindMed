@@ -5,6 +5,11 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.DashPathEffect;
+import android.graphics.Paint;
+import android.graphics.pdf.PdfDocument;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -29,6 +34,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.SetOptions;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -41,7 +49,7 @@ public class user_information extends AppCompatActivity {
     //public static final String TAG1 = "TAG";
     //public static final String TAG = "TAG";
     EditText gender, birthyr, height, weight;
-    Button buttonSave, buttonLogout;
+    Button buttonSave, buttonLogout, buttonpdf;
     TextView email, firstname, lastname;
     FirebaseAuth rootAuthen;
     FirebaseFirestore fstore;
@@ -54,19 +62,9 @@ public class user_information extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_information);
-
-
-
-
-        /*
-        Intent data = getIntent();
-        String Gender = data.getStringExtra("Gender");
-        String Birthdate = data.getStringExtra("Birthdate");
-        String Height = data.getStringExtra("Height");
-        String Weight = data.getStringExtra("Weight");
-*/
+        
         email = findViewById(R.id.emailview);
-        //firstname = findViewById(R.id.firstview);
+        //firstname = findViewById(R.id.firstnameview);
         //lastname = findViewById(R.id.lastview);
 
         spinner = findViewById(R.id.gender_spinner);
@@ -75,6 +73,8 @@ public class user_information extends AppCompatActivity {
         weight = findViewById(R.id.editTextweight);
         buttonSave = findViewById(R.id.btnSave);
         buttonLogout = findViewById(R.id.btnLogout);
+
+        buttonpdf = findViewById(R.id.buttontestpdf);
 
         rootAuthen = FirebaseAuth.getInstance();
         fstore = FirebaseFirestore.getInstance();
@@ -89,6 +89,29 @@ public class user_information extends AppCompatActivity {
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(myAdapter);
 
+        //para sa pdf
+        buttonpdf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //String Firstname = firstname.getText().toString().trim();
+
+                String Gender = spinner.getSelectedItem().toString().trim();
+                String Birthyr = birthyr.getText().toString().trim();
+                String Height = height.getText().toString().trim();
+                String Weight = weight.getText().toString().trim();
+
+                Map<String,Object> user = new HashMap<>();
+                //user.put("firstname", Firstname);
+                user.put("gender",Gender);
+                user.put("birthyr",Birthyr);
+                user.put("height",Height);
+                user.put("weight",Weight);
+
+                printPDF();
+            }
+        });
+        //hanggang dito pdf
+
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,11 +120,15 @@ public class user_information extends AppCompatActivity {
                 String Height = height.getText().toString().trim();
                 String Weight = weight.getText().toString().trim();
 
+
+
                 Map<String,Object> user = new HashMap<>();
                 user.put("gender",Gender);
                 user.put("birthyr",Birthyr);
                 user.put("height",Height);
                 user.put("weight",Weight);
+
+
 
                 fstore.collection("users").document(userId).set(user, SetOptions.merge()).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -111,106 +138,10 @@ public class user_information extends AppCompatActivity {
                         }
                     }
                 });
-
-/*
-                DocumentReference documentReference = fstore.collection("users").document(userId);
-                Map<String,Object> user = new HashMap<>();
-                user.put("gender",Gender);
-                user.put("birthyr",Birthyr);
-                user.put("height",Height);
-                user.put("weight",Weight);
-
-                documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        Log.d(TAG,"onscuess" + userId);
-                    }
-                });
-*/
-
-                /*
-                HashMap<String,Object> hashMap = new HashMap<>();
-                hashMap.put("gender",Gender);
-                hashMap.put("birthyr",Birthyr);
-                hashMap.put("height",Height);
-                hashMap.put("weight",Weight);
-
-                FirebaseFirestore.getInstance().collection("users").document(userId).set(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        Toast.makeText(user_information.this, "Saved", Toast.LENGTH_SHORT).show();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(user_information.this, ""+ e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-                 */
-
             }
         });
 
 
-/*
-        gender.setText(Gender);
-        birthdate.setText(Birthdate);
-        gender.setText(Height);
-        gender.setText(Weight);
-
-
-        Log.d(TAG, "onCreate: " + Gender + " " + Birthdate + " " + Height + " " + Weight);
-*/
-/*
-        buttonSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String Gender = gender.getText().toString().trim();
-                String Birthdate = birthdate.getText().toString().trim();
-                String Height = height.getText().toString().trim();
-                String Weight = height.getText().toString().trim();
-
-                if (TextUtils.isEmpty(Gender)) {
-                    gender.setError("Gender is required");
-                    return;
-                }
-                if (TextUtils.isEmpty(Birthdate)) {
-                    birthdate.setError("Birthdate is required");
-                    return;
-                }
-                if (TextUtils.isEmpty(Height)) {
-                    height.setError("Height is required");
-                    return;
-                }
-                if (TextUtils.isEmpty(Weight)) {
-                    weight.setError("Confirm Password is required");
-                    return;
-                }
-
-                rootAuthen.createUserWithEmailAndPassword(Email, Password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(user_information.this, "Saved", Toast.LENGTH_SHORT).show();
-                            userId = rootAuthen.getCurrentUser().getUid();
-                            DocumentReference documentReference = fstore.collection("users").document(userId);
-                            Map<String,Object> user = new HashMap<>();
-                            user.put("Gender",Gender);
-                            user.put("YearofBirth",Birthdate);
-                            user.put("Weight",Weight);
-                            user.put("Height",Height);
-                            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void unused) {
-                                    Log.d(TAG,"onSucess: saved " + userId);
-                                }
-                            });
-                    }
-                });
-            }
-        });
-*/
         DocumentReference documentReference = fstore.collection("users").document(userId);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
@@ -222,9 +153,51 @@ public class user_information extends AppCompatActivity {
                 birthyr.setText(value.getString("birthyr"));
                 height.setText(value.getString("height"));
                 weight.setText(value.getString("weight"));
+                
+
             }
         });
     }
+
+    //start ng method ng pdf
+    private void printPDF() {
+        PdfDocument myPdfDocument = new PdfDocument();
+        Paint paint = new Paint();
+        Paint forLinePaint = new Paint();
+        PdfDocument.PageInfo myPageInfo = new PdfDocument.PageInfo.Builder(250,350,1).create();
+        PdfDocument.Page myPage = myPdfDocument.startPage(myPageInfo);
+        Canvas canvas = myPage.getCanvas();
+
+        paint.setTextSize(15.5f);
+        paint.setColor(Color.rgb(0,50,250));
+
+        canvas.drawText("RemindMed",20,20,paint);
+        paint.setTextSize(8.5f);
+        canvas.drawText("Testing lang kung gagana",20,40,paint);
+        forLinePaint.setStyle(Paint.Style.STROKE);
+        forLinePaint.setPathEffect(new DashPathEffect(new float[]{5,5},0));
+        forLinePaint.setStrokeWidth(2);
+        canvas.drawLine(20,65,230,65,forLinePaint);
+
+        canvas.drawText("Email: " + email.getText(),20,80,paint);
+        canvas.drawText("Gender: " + spinner.getSelectedItem(),20,90,paint);
+        canvas.drawText("Year of birth: " + birthyr.getText(),20,100,paint);
+        canvas.drawText("Height: " + height.getText(),20,110,paint);
+        canvas.drawText("Weight: " + weight.getText(),20,120,paint);
+
+        myPdfDocument.finishPage(myPage);
+        File file = new File(this.getExternalFilesDir("/"), "Remindmed.pdf");
+
+        try {
+            myPdfDocument.writeTo(new FileOutputStream(file));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        myPdfDocument.close();
+
+    }
+//end ng method ng pdf
+
     public void User_To_Account (View view){
         Intent intent = new Intent(user_information.this, change_name.class);
         startActivity(intent);

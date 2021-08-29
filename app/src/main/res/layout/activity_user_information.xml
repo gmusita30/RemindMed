@@ -219,4 +219,14 @@
         app:layout_constraintBottom_toTopOf="@+id/editTextbirth"
         app:layout_constraintStart_toEndOf="@+id/genderView" />
 
+    <Button
+        android:id="@+id/buttontestpdf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Testing"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogout" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
