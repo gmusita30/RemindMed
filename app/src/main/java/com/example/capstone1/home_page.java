@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -17,14 +16,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class home_page extends AppCompatActivity {
-
-
     FirebaseFirestore fstore;
     FirebaseAuth rootAuthen;
     String userId;
     TextView firstname;
-    Button medications;
-    Button measurements;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,23 +27,6 @@ public class home_page extends AppCompatActivity {
         setContentView(R.layout.activity_home_page);
 
         firstname = findViewById(R.id.firstnameview);
-        medications = (Button) findViewById(R.id.add_medications_btn);
-        measurements = (Button) findViewById(R.id.add_measurements_btn);
-
-        medications.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                opennew_medications();
-            }
-
-
-            public void opennew_medications() {
-                Intent intent = new Intent(home_page.this,
-                        new_medications.class);
-                startActivity(intent);
-            }
-        });
-
 
         fstore = FirebaseFirestore.getInstance();
         rootAuthen = FirebaseAuth.getInstance();
@@ -64,12 +42,12 @@ public class home_page extends AppCompatActivity {
             }
         });
     }
-   // public void Home_To_Health(View view){
-     //   Intent intent = new Intent(this, health_measurements.class);
-       // startActivity(intent);
-    //}
-    //public void Home_To_User(View view){
-      //  Intent intent = new Intent(this, user_information.class);
-        //startActivity(intent);
-    //}
+    public void Home_To_Health(View view){
+        Intent intent = new Intent(this, health_measurements.class);
+        startActivity(intent);
+    }
+    public void Home_To_User(View view){
+        Intent intent = new Intent(this, user_information.class);
+        startActivity(intent);
+    }
 }

@@ -59,13 +59,13 @@
         android:layout_width="114dp"
         android:layout_height="45dp"
         android:layout_marginStart="280dp"
-        android:layout_marginBottom="376dp"
+        android:layout_marginBottom="24dp"
         android:background="@drawable/edittext3"
         android:ems="10"
         android:hint="Year of Birth"
         android:inputType="textPersonName"
         android:paddingStart="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/editTextheight"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -73,13 +73,13 @@
         android:layout_width="114dp"
         android:layout_height="45dp"
         android:layout_marginStart="280dp"
-        android:layout_marginBottom="308dp"
+        android:layout_marginBottom="31dp"
         android:background="@drawable/edittext3"
         android:ems="10"
         android:hint="Height"
         android:inputType="textPersonName"
         android:paddingStart="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/editTextweight"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText

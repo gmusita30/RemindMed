@@ -46,6 +46,7 @@ public class new_measurements_heartrate extends AppCompatActivity {
     FirebaseAuth rootAuthen;
     FirebaseFirestore fstore;
     String userId;
+    Spinner spinnerhr;
 
     Button timeButton;
     int hour, minute;
@@ -57,19 +58,30 @@ public class new_measurements_heartrate extends AppCompatActivity {
 
         heartrate= findViewById(R.id.heart_rate_box);
         buttonsaveheart = findViewById(R.id.btnsaveheart);
+        spinnerhr = findViewById(R.id.frequency_spinner_six);
 
         rootAuthen = FirebaseAuth.getInstance();
         fstore = FirebaseFirestore.getInstance();
 
         userId = rootAuthen.getCurrentUser().getUid();
 
+        //Spinner my_spinner = (Spinner) findViewById(R.id.frequency_spinner_six);
+
+        ArrayAdapter<String> myAdapter2 = new ArrayAdapter<String>(new_measurements_heartrate.this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.frequency));
+        myAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerhr.setAdapter(myAdapter2);
+
+
         buttonsaveheart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String Heartrate = heartrate.getText().toString().trim();
+                String Frequency = spinnerhr.getSelectedItem().toString().trim();
 
                 Map<String,Object> user =new HashMap<>();
                 user.put("Heartrate",Heartrate);
+                user.put("FrequencyHeartR",Frequency);
 
                 fstore.collection("users").document(userId).set(user, SetOptions.merge()).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -95,13 +107,6 @@ public class new_measurements_heartrate extends AppCompatActivity {
         Intent intent = new Intent(new_measurements_heartrate.this, health_measurements.class);
         startActivity(intent);
 
-        Spinner my_spinner = (Spinner) findViewById(R.id.frequency_spinner_six);
-
-        ArrayAdapter<String> myAdapter2 = new ArrayAdapter<String>(new_measurements_heartrate.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.frequency));
-        myAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        my_spinner.setAdapter(myAdapter2);
-
     }
 
     public void popTimePicker (View view){
@@ -122,4 +127,3 @@ public class new_measurements_heartrate extends AppCompatActivity {
         timePickerDialog.show();
     }
 }
-

@@ -46,7 +46,8 @@ public class user_information extends AppCompatActivity {
     FirebaseAuth rootAuthen;
     FirebaseFirestore fstore;
     String userId;
-    
+
+    Spinner spinner;
 
 
     @Override
@@ -68,6 +69,7 @@ public class user_information extends AppCompatActivity {
         //firstname = findViewById(R.id.firstview);
         //lastname = findViewById(R.id.lastview);
 
+        spinner = findViewById(R.id.gender_spinner);
         birthyr = findViewById(R.id.editTextbirth);
         height = findViewById(R.id.editTextheight);
         weight = findViewById(R.id.editTextweight);
@@ -79,10 +81,18 @@ public class user_information extends AppCompatActivity {
 
         userId = rootAuthen.getCurrentUser().getUid();
 
+        //added spinner and
+        //Spinner mySpinnerone = (Spinner) findViewById(R.id.gender_spinner);
+
+        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(user_information.this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.gender));
+        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(myAdapter);
+
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String Gender = gender.getText().toString().trim();
+                String Gender = spinner.getSelectedItem().toString().trim();
                 String Birthyr = birthyr.getText().toString().trim();
                 String Height = height.getText().toString().trim();
                 String Weight = weight.getText().toString().trim();
@@ -109,7 +119,6 @@ public class user_information extends AppCompatActivity {
                 user.put("birthyr",Birthyr);
                 user.put("height",Height);
                 user.put("weight",Weight);
-
                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
@@ -124,7 +133,6 @@ public class user_information extends AppCompatActivity {
                 hashMap.put("birthyr",Birthyr);
                 hashMap.put("height",Height);
                 hashMap.put("weight",Weight);
-
                 FirebaseFirestore.getInstance().collection("users").document(userId).set(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
@@ -136,7 +144,6 @@ public class user_information extends AppCompatActivity {
                         Toast.makeText(user_information.this, ""+ e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
-
                  */
 
             }
@@ -148,8 +155,6 @@ public class user_information extends AppCompatActivity {
         birthdate.setText(Birthdate);
         gender.setText(Height);
         gender.setText(Weight);
-
-
         Log.d(TAG, "onCreate: " + Gender + " " + Birthdate + " " + Height + " " + Weight);
 */
 /*
@@ -160,7 +165,6 @@ public class user_information extends AppCompatActivity {
                 String Birthdate = birthdate.getText().toString().trim();
                 String Height = height.getText().toString().trim();
                 String Weight = height.getText().toString().trim();
-
                 if (TextUtils.isEmpty(Gender)) {
                     gender.setError("Gender is required");
                     return;
@@ -177,7 +181,6 @@ public class user_information extends AppCompatActivity {
                     weight.setError("Confirm Password is required");
                     return;
                 }
-
                 rootAuthen.createUserWithEmailAndPassword(Email, Password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -208,7 +211,7 @@ public class user_information extends AppCompatActivity {
                 email.setText(value.getString("email"));
                 //firstname.setText(value.getString("firstname"));
                 //lastname.setText(value.getString("lastname"));
-                gender.setText(value.getString("gender"));
+                //gender.setText(value.getString("gender"));
                 birthyr.setText(value.getString("birthyr"));
                 height.setText(value.getString("height"));
                 weight.setText(value.getString("weight"));
@@ -224,12 +227,5 @@ public class user_information extends AppCompatActivity {
         Intent intent = new Intent(user_information.this, main_page.class);
         startActivity(intent);
 
-        //added spinner and
-        Spinner mySpinnerone = (Spinner) findViewById(R.id.gender_spinner);
-
-        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(user_information.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.gender));
-        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mySpinnerone.setAdapter(myAdapter);
     }
 }

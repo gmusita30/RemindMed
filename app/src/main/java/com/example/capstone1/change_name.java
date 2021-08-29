@@ -51,7 +51,7 @@ public class change_name extends AppCompatActivity {
 
         editfirstname = findViewById(R.id.editfirstname);
         editlastname = findViewById(R.id.editlastname);
-       // editemail = findViewById(R.id.editemail);
+        editemail = findViewById(R.id.editemail);
         savebtn = findViewById(R.id.buttonsave);
 
 

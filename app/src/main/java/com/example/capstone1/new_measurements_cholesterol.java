@@ -49,6 +49,7 @@ public class new_measurements_cholesterol extends AppCompatActivity {
     FirebaseAuth rootAuthen;
     FirebaseFirestore fstore;
     String userId;
+    Spinner spinnerch;
 
     Button timeButton;
     int hour, minute;
@@ -61,19 +62,30 @@ public class new_measurements_cholesterol extends AppCompatActivity {
 
         cholesterol = findViewById(R.id.cholesterol_box);
         buttonsavecholesterol = findViewById(R.id.btnsavecholesterol);
+        spinnerch = findViewById(R.id.frequency_spinner_five);
 
         rootAuthen = FirebaseAuth.getInstance();
         fstore = FirebaseFirestore.getInstance();
 
         userId = rootAuthen.getCurrentUser().getUid();
 
+        //Spinner my_spinner = (Spinner) findViewById(R.id.frequency_spinner_five);
+
+        ArrayAdapter<String> myAdapter2 = new ArrayAdapter<String>(new_measurements_cholesterol.this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.frequency));
+        myAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerch.setAdapter(myAdapter2);
+
+
         buttonsavecholesterol.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String Cholesterol = cholesterol.getText().toString().trim();
+                String Frequency = spinnerch.getSelectedItem().toString().trim();
 
                 Map<String,Object> user = new HashMap<>();
                 user.put("Cholesterol",Cholesterol);
+                user.put("FrequencyChol",Frequency);
 
                 fstore.collection("users").document(userId).set(user, SetOptions.merge()).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -101,13 +113,6 @@ public class new_measurements_cholesterol extends AppCompatActivity {
         Intent intent = new Intent(new_measurements_cholesterol.this, health_measurements.class);
         startActivity(intent);
 
-        Spinner my_spinner = (Spinner) findViewById(R.id.frequency_spinner_five);
-
-        ArrayAdapter<String> myAdapter2 = new ArrayAdapter<String>(new_measurements_cholesterol.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.frequency));
-        myAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        my_spinner.setAdapter(myAdapter2);
-
     }
 
     public void popTimePicker (View view){
@@ -128,7 +133,3 @@ public class new_measurements_cholesterol extends AppCompatActivity {
         timePickerDialog.show();
     }
 }
-
-
-
-

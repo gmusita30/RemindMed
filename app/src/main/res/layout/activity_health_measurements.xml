@@ -34,21 +34,11 @@
         android:layout_marginBottom="24dp"
         android:text="Health Measurements"
         android:textColor="#FFFFFF"
-        android:textSize="33sp"
+        android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.732"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="530dp"
-        android:layout_height="648dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginBottom="116dp"
-        app:layout_constraintBottom_toBottomOf="@+id/view4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/healthmeasurement" />
 
     <TextView
         android:id="@+id/blood_pressure_txt"
@@ -309,6 +299,15 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textViewHistory" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="294dp"
+        android:layout_height="191dp"
+        android:layout_marginStart="128dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:srcCompat="@drawable/recordmeasurements" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

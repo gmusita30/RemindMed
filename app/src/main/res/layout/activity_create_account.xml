@@ -60,16 +60,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="641dp"
-        android:layout_height="537dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginBottom="376dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/doctor" />
-
     <TextView
         android:id="@+id/backTxt"
         android:layout_width="wrap_content"
@@ -239,5 +229,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="276dp"
+        android:layout_height="191dp"
+        android:layout_marginStart="164dp"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/first_nameBox"
+        app:layout_constraintStart_toStartOf="@+id/create_account"
+        app:srcCompat="@drawable/doctorr" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

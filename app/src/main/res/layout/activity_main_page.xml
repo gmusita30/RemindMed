@@ -53,7 +53,7 @@
         android:id="@+id/guest_btn"
         android:layout_width="287dp"
         android:layout_height="65dp"
-        android:layout_marginBottom="152dp"
+        android:layout_marginBottom="140dp"
         android:background="@drawable/edit_roundmain"
         android:fontFamily="@font/viga"
         android:text="Login as a guest"

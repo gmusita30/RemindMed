@@ -23,13 +23,13 @@
         android:layout_width="314dp"
         android:layout_height="146dp"
         android:layout_marginStart="48dp"
-        android:layout_marginBottom="384dp"
+        android:layout_marginBottom="73dp"
         android:background="@drawable/edit_round2"
         android:fontFamily="@font/open_sans_bold"
         android:text="Set now"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/set_later_btn"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -50,14 +50,13 @@
         android:id="@+id/health_measurementstxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="668dp"
+        android:layout_marginBottom="28dp"
         android:text="Health Measurements"
         android:textColor="#FFFFFF"
         android:textSize="35sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

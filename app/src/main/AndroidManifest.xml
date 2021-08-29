@@ -12,10 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Capstone1">
 
+    //eto nadagdag
         <activity
             android:name=".optical_character_recognition"
             android:exported="true"/>
-
         <activity
             android:name=".optical_character_recognition_one"
             android:exported="true"/>

@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.view.View.OnClickListener;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,11 +20,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-
-
 public class main_page extends AppCompatActivity {
 
-    Button create_Account;
+    Button create_account;
     Button login;
     Button guest;
     FirebaseAuth rootAuthen;
@@ -36,41 +33,11 @@ public class main_page extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
 
-        create_Account = (Button) findViewById(R.id.createacc_button);
+        create_account = findViewById(R.id.createacc_button);
         login = (Button) findViewById(R.id.login_button);
         guest = (Button) findViewById(R.id.guest_btn);
         rootAuthen = FirebaseAuth.getInstance();
         currentUser = rootAuthen.getCurrentUser();
-
-
-        //   login.setOnClickListener(new OnClickListener() {
-        //     @Override
-        //   public void onClick(View view) {
-        //     openlogin_page();
-        //}
-        //});
-        // }
-
-        //public void openlogin_page() {
-        //  Intent intent = new Intent(this, login_page.class);
-        //startActivity(intent);
-        //}
-
-        guest.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openinstruction_slideone();
-            }
-        });
-    }
-
-        public void openinstruction_slideone () {
-            Intent intent = new Intent(this, instruction_slideone.class);
-            startActivity(intent);
-        }
-    }
-
-
 
 
         //guest
@@ -89,7 +56,6 @@ public class main_page extends AppCompatActivity {
                             });
                             Log.d(TAG, "signInAnonymously:success");
                             FirebaseUser user = rootAuthen.getCurrentUser();
-
                             //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -102,19 +68,34 @@ public class main_page extends AppCompatActivity {
                 });
 */
 
+        /*
+        create_account.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                opencreate_account();
+            }
+        });
+*/
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openlogin_page();
+            }
+        });
+
+    }
+    public void openlogin_page(){
+        Intent intent = new Intent(this, login_page.class);
+        startActivity(intent);
+    }
 
 
-
-
-
-
-
-
-   // public void Main_To_Create(View view) {
-     //   Intent intent = new Intent(this, create_account.class);
-       // startActivity(intent);
-    //}
-//}
+    public void Main_To_Create(View view) {
+        Intent intent = new Intent(this, create_account.class);
+        startActivity(intent);
+    }
+}
 
 /*
     public void Main_To_Create(){
@@ -131,7 +112,4 @@ public class main_page extends AppCompatActivity {
         Intent intent = new Intent(this, landing_page.class);
         startActivity(intent);
     }
-
-
-
  */
